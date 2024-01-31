@@ -99,7 +99,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                             <br />
                             &emsp;{'const hireMe = you.contact(me);'}
                             <br />
-                            &emsp;{'if(hireMe){'}
+                            &emsp;{'if(!hireMe){'}
                             <br />
                             &emsp;&emsp;{'throw error;'}
                             <br />
