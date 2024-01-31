@@ -1,14 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   outline: 1px dashed red;
   margin: 0;
   padding: 0;
+  color: white;
 }
 
 h1,h2,h3{
   font-family: "VT323", 'Roboto';
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.83em;
+}
+h6 {
+  font-size: 0.67em;
 }
 
 body {
@@ -17,4 +41,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: black;
+  /* padding-left: 60px;
+  padding-right: 60px; */
 }

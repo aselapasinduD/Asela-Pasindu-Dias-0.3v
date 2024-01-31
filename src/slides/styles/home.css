@@ -1,0 +1,29 @@
+.socialIcon svg  {
+    width: 25px;
+    height: 25px
+}
+
+.home-main::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url('../../assests/LOGO backgound.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left bottom;
+}
+.home-main::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assests/myphoto-small.png');
+    background-repeat: no-repeat;
+    background-size: 640px;
+    background-position: left bottom;
+}
