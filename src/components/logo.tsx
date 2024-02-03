@@ -7,7 +7,7 @@ interface props {
 const logo = (props: props) => {
     const {className} = props
     return(
-        <a href="http://localhost:3000/" className={className}>
+        <a href="https://asela-pasindu-dias.onrender.com/" className={className}>
             <img className="flex-end" src={Logo}/>
         </a>
     )
