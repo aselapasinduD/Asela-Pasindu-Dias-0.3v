@@ -1,5 +1,6 @@
 import Slide from "../../components/slide";
 import SectionNavBar from "../../components/sectionNavBar";
+import ContactButtons from "../../components/contactButtons";
 
 interface props {
     ViewportSize: number[];
@@ -25,13 +26,14 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         <div className="bg-black w-[100%] h-[100%]">
             <SectionNavBar title="SKILLS" handleBackButton={handleClick} />
             <h1 className=" text-center ">Under Construction</h1>
+            <ContactButtons />
         </div>
     );
 }
 
 const Skills = (props: props) => {
     return(
-        <Slide id="skills" className="translate-x-[-50px]">
+        <Slide id="skills" className="translate-x-[-30px] lg:translate-x-[-50px]">
             <ChildrenWithProps {...props} />
         </Slide>
     );
