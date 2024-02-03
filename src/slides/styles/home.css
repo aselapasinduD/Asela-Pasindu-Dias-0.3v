@@ -24,6 +24,12 @@
     bottom: 0;
     background-image: url('../../assests/myphoto-small.png');
     background-repeat: no-repeat;
-    background-size: 640px;
+    background-size: 530px;
     background-position: left bottom;
 }
+
+/* @media screen and (max-width: 1280px) {
+    .home-main::after {
+        background-size: 530px !important;
+    }
+} */

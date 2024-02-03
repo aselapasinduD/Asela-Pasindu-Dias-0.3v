@@ -1,5 +1,6 @@
 import Slide from "../components/slide";
 import SectionNavBar from "../components/sectionNavBar";
+import ContactButtons from "../components/contactButtons";
 
 import "./styles/aboutme.css";
 
@@ -25,15 +26,15 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     return (
         <div className={`aboutme flex flex-col bg-black w-[100%] h-[100%] ${className? className : ""}`}>
-            <div className=" flex flex-col absolute right-[0] top-[0] ">
+            <div className=" flex flex-col text-[1.8rem] absolute right-[200px] top-[200px] ">
                 <button>
-                    <h1>SKILLS</h1>
+                    <h1 className=" text-start leading-tight ">SKILLS</h1>
                 </button>
                 <button>
-                    <h1>EDUCATIONS</h1>
+                    <h1 className=" text-start leading-tight ">EDUCATIONS</h1>
                 </button>
                 <button>
-                    <h1>PROJECTS</h1>
+                    <h1 className=" text-start leading-tight ">PROJECTS</h1>
                 </button>
             </div>
             <SectionNavBar title="WHO AM I" handleBackButton={handleClick} />
@@ -59,6 +60,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     <polygon points="0,0 0,360 250,500" fill="transparent" stroke="#ff6600" stroke-width="3" />
                 </svg>
             </div>
+            <ContactButtons />
         </div>
     );
 }

@@ -7,9 +7,9 @@ const ContactButtons = () => {
     }
 
     return(
-        <div className=" flex absolute justify-end gap-[50px] right-[16%] bottom-[8.6%] ">
-            <button className=" bg-orange rounded-[8px] px-[16px] py-[6px] ">SEND MAIL</button>
-            <button onClick={handleContactButton} className=" bg-orange rounded-[8px] px-[16px] py-[6px] ">CONTACT ME</button>
+        <div className=" flex absolute justify-end gap-[50px] right-[9%] bottom-[8%] ">
+            <button className=" bg-orange rounded-[8px] px-[16px] "><h3>SEND MAIL</h3></button>
+            <button onClick={handleContactButton} className=" bg-orange rounded-[8px] px-[16px] "><h3>CONTACT ME</h3></button>
         </div>
     );
 }
