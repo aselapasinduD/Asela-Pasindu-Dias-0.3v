@@ -2,7 +2,12 @@ import Slide from "../components/slide";
 import SectionNavBar from "../components/sectionNavBar";
 import ContactButtons from "../components/contactButtons";
 
+import Educations from "./sections/educations";
+import Projects from "./sections/projects";
+import Skills from "./sections/skills";
+
 import "./styles/aboutme.css";
+import "./styles/sectionsSlideAnimation.css";
 
 interface props {
     ViewportSize: number[];
@@ -24,16 +29,31 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     }
     handleClick();
 
+    const BringFrontSkillsSlide = () => {
+        const contactElement = document.getElementById("skills")?.style;
+        if(contactElement) contactElement.bottom = '0px';
+    }
+
+    const BringFrontEducationsSlide = () => {
+        const contactElement = document.getElementById("educations")?.style;
+        if(contactElement) contactElement.bottom = '0px';
+    }
+
+    const BringFrontProjectsSlide = () => {
+        const contactElement = document.getElementById("projects")?.style;
+        if(contactElement) contactElement.bottom = '0px';
+    }
+
     return (
         <div className={`aboutme flex flex-col bg-black w-[100%] h-[100%] ${className? className : ""}`}>
             <div className=" flex flex-col text-[1.8rem] xl:text-[2rem] absolute right-[110px] xl:right-[200px] top-[140px] xl:top-[160px] ">
-                <button>
+                <button onClick={BringFrontSkillsSlide}>
                     <h1 className=" text-start leading-tight ">SKILLS</h1>
                 </button>
-                <button>
+                <button onClick={BringFrontEducationsSlide}>
                     <h1 className=" text-start leading-tight ">EDUCATIONS</h1>
                 </button>
-                <button>
+                <button onClick={BringFrontProjectsSlide}>
                     <h1 className=" text-start leading-tight ">PROJECTS</h1>
                 </button>
             </div>
@@ -61,6 +81,9 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 </svg>
             </div>
             <ContactButtons />
+            <Skills ViewportSize={ViewportSize} />
+            <Educations ViewportSize={ViewportSize} />
+            <Projects ViewportSize={ViewportSize} />
         </div>
     );
 }

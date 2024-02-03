@@ -1,10 +1,39 @@
-import React from "react";
+import Slide from "../../components/slide";
+import SectionNavBar from "../../components/sectionNavBar";
 
-const Skills = () => {
+interface props {
+    ViewportSize: number[];
+    className?: string
+}
+
+interface ismobile {
+    ismobile?: boolean
+}
+
+type childrenProps = props & ismobile;
+
+const ChildrenWithProps = (childrenProps: childrenProps) => {
+    const {ViewportSize, className, ismobile} = childrenProps;
+
+    const handleClick = () => {
+        const contactElement = document.getElementById("skills")?.style;
+        if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
+    }
+    handleClick();
+
     return(
-        <div className="skills">
-            <p>SKILLS</p>
+        <div className="bg-black w-[100%] h-[100%]">
+            <SectionNavBar title="SKILLS" handleBackButton={handleClick} />
+            <h1 className=" text-center ">Under Construction</h1>
         </div>
+    );
+}
+
+const Skills = (props: props) => {
+    return(
+        <Slide id="skills" className="translate-x-[-50px]">
+            <ChildrenWithProps {...props} />
+        </Slide>
     );
 }
 

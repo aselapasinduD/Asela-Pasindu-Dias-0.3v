@@ -1,4 +1,6 @@
 import Slide from "../components/slide";
+import Back from "../components/back";
+import SectionNavBar from "../components/sectionNavBar";
 
 import "./styles/contact.css";
 
@@ -24,8 +26,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     return (
         <div className={`contact ${className? className: ""} bg-orange w-[100%] h-[100%]`}>
-            <p className="text-black">CONTACT</p>
-            <button className="text-black" onClick={() => handleclick()}>Click Me</button>
+            <SectionNavBar title="CONTACT" handleBackButton={handleclick} />
         </div>
     );
 }
