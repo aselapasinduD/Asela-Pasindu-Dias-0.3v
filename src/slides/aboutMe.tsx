@@ -38,11 +38,11 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 </button>
             </div>
             <SectionNavBar title="WHO AM I" handleBackButton={handleClick} />
-            <div className=" flex-grow flex flex-col ml-[90px] justify-evenly text-[1.1rem] leading-tight ">
-                <p className=" w-[400px] font-bold ">
+            <div className=" flex-grow flex flex-col ml-[90px] lg:ml-[120px] justify-evenly text-[1.1rem] leading-tight ">
+                <p className=" w-[400px] lg:w-[500px] font-bold ">
                     Hello. I'm Asela Pasindu Dias. I'm a multi-talented person who has over 4+ years of experience in a variety of design disciplines, coding, and research fields.
                 </p>
-                <p className=" w-[400px] ml-[100px] font-light ">
+                <p className=" w-[400px] lg:w-[500px] ml-[100px] font-light ">
                     Additionally, I'm Doing UI/UX design, software development, and full-stack web development, Three.JS development, C# development. I'm also interested in varieties of programming languages and the concept of disciplines in programming.
                 </p>
                 <p className=" w-[480px] ml-[220px] font-light ">
@@ -55,7 +55,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     Over the course of my life and profession, I like to gain competence in a variety of subjects. I am an ENFJ-T personality type. I now conduct remote work with a chosen group of freelancing clients, but I'm always interested in new opportunities.
                 </p>
             </div>
-            <div className=" absolute top-[222px] ml-[34px] ">
+            <div className=" absolute top-[222px] ml-[34px] lg:ml-[50px] ">
                 <svg height="385">
                     <polygon points="2,6 2,260 220,380" fill="transparent" stroke="#ff6600" stroke-width="3" />
                 </svg>

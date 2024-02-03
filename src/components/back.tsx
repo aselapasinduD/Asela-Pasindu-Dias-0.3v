@@ -8,7 +8,7 @@ interface props {
 const Back = (props: props) => {
     const {handleBackButton} = props;
     return(
-        <div className=" absolute p-[5px] left-[60px] top-[50px] h-[48px] ">
+        <div className=" absolute p-[5px] left-[60px] lg:left-[100px] top-[50px] h-[48px] ">
             <button onClick={handleBackButton}>
                 {backArrow}
             </button>
