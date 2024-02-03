@@ -27,6 +27,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     return (
         <div className={`contact ${className? className: ""} bg-orange w-[100%] h-[100%]`}>
             <SectionNavBar title="CONTACT" handleBackButton={handleclick} />
+            <h1 className=" text-center ">Under Construction</h1>
         </div>
     );
 }
