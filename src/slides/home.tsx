@@ -1,7 +1,7 @@
 import Slide from "../components/slide";
+import Logo from "../components/logo";
 
 import { SocialIcons } from "../assests/Icons/socialIcons";
-import Logo from "../assests/Icons/LOGO.svg";
 import ContactButtons from "../components/contactButtons";
 
 import "./styles/home.css";
@@ -66,7 +66,6 @@ const headTopic = () => {
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
-    console.log(childrenProps);
 
     return (
         <div className={` home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
@@ -78,9 +77,9 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                             </span>
                         })}
                     </span>
-                    <img className="flex-end" src={Logo}/>
+                    <Logo />
                 </nav>
-                <div className=" flex flex-col flex-1 border-2 border-orange rounded-[30px] ">
+                <div className=" flex flex-col flex-1 border-[3px] border-orange rounded-[30px] ">
                     <Menu />
                     <div className=" home-main relative h-[100%] mx-[28px] mb-[32px] ">
                         <p className=" absolute tracking-[0.3em] text-[1.16rem] top-[24.5%] left-[39%] ">
