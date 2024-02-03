@@ -56,7 +56,7 @@ const headTopic = () => {
             {wordList.map((oneWord, index) => {
                 return(
                     <div key={index} className="tracking-[0.5em] w-[100%]">
-                        <div><h1 className=" text-[3.8rem] leading-none lg:leading-tight ">{oneWord.toUpperCase()}</h1></div>
+                        <div><h1 className=" text-[3.8rem] xl:text-[4.6rem] leading-none lg:leading-tight ">{oneWord.toUpperCase()}</h1></div>
                     </div>
                 )
             })}
@@ -82,13 +82,13 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 <div className=" flex flex-col flex-1 border-[3px] border-orange rounded-[30px] ">
                     <Menu />
                     <div className=" home-main relative h-[100%] ml-[28px] mb-[32px] ">
-                        <p className=" absolute tracking-[0.3em] text-[1.1rem] top-[23.5%] left-[39%] lg:left-[34%] ">
+                        <p className=" absolute tracking-[0.3em] text-[1.1rem] top-[23.5%] xl:top-[24.5%] left-[39%] lg:left-[34%] xl:left-[39%] ">
                             WELCOME TO MY HOME
                         </p>
-                        <div className=" absolute top-[10%] lg:top-[4%] left-[69%] lg:left-[62%] ">
+                        <div className=" absolute top-[10%] lg:top-[4%] xl:top-[7%] left-[69%] lg:left-[62%] ">
                             {headTopic()}
                         </div>
-                        <h2 className=" absolute text-[1.3em] lg:text-[1.6em] leading-[1.5em] lg:leading-[1.2em] bottom-[5%] left-[60%] lg:left-[53%] ">
+                        <h2 className=" absolute text-[1.3em] lg:text-[1.6em] leading-[1.5em] lg:leading-[1.2em] xl:leading-tight bottom-[5%] xl:bottom-[7%] left-[60%] lg:left-[53%] xl:left-[54%] ">
                             {'var me = “ME”;'}
                             <br />
                             {'var you = “YOU”;'}

@@ -33,7 +33,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 const Contact = (props: props) => {
 
     return(
-        <Slide id="contact">
+        <Slide id="contact" className=" z-[9999]">
             <ChildrenWithProps {...props} />
         </Slide>
     );
