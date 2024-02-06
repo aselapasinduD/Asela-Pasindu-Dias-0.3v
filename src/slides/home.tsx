@@ -67,6 +67,8 @@ const headTopic = () => {
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
 
+    console.log("Is Mobile: " + ismobile);
+
     return (
         <div className={` home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
                 <nav className="flex w-[100%] items-center py-[15px] px-[35px]">
@@ -80,15 +82,27 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     <Logo />
                 </nav>
                 <div className=" flex flex-col flex-1 border-[3px] border-orange rounded-[30px] ">
-                    <Menu />
-                    <div className=" home-main relative h-[100%] ml-[28px] mb-[32px] ">
-                        <p className=" absolute tracking-[0.3em] text-[1.1rem] top-[23.5%] xl:top-[24.5%] left-[39%] lg:left-[34%] xl:left-[39%] ">
+                    <Menu ismobile={ismobile} />
+                    <div className={
+                        `home-main relative h-[100%]
+                        ${ismobile? "ml-[10px] mb-[18px] after:!bottom-[30px] before:!bottom-[31px] after:!left-[22px] after:!h-[80%] before:!h-[80%]" : "ml-[28px] mb-[32px]"}
+                    `}>
+                        <p className={
+                            `absolute tracking-[0.3em] text-[1.1rem] top-[23.5%] xl:top-[24.5%] left-[39%] lg:left-[34%] xl:left-[39%]
+                            ${ismobile? "!static text-[1.3rem] text-center my-[3%] " : ""}
+                        `}>
                             WELCOME TO MY HOME
                         </p>
-                        <div className=" absolute top-[10%] lg:top-[4%] xl:top-[7%] left-[69%] lg:left-[62%] ">
+                        <div className={
+                            `absolute top-[10%] lg:top-[4%] xl:top-[7%] left-[69%] lg:left-[62%]
+                            ${ismobile? "!static " : ""}
+                        `}>
                             {headTopic()}
                         </div>
-                        <h2 className=" absolute text-[1.3em] lg:text-[1.6em] leading-[1.5em] lg:leading-[1.2em] xl:leading-tight bottom-[5%] xl:bottom-[7%] left-[60%] lg:left-[53%] xl:left-[54%] ">
+                        <h2 className={
+                            `absolute text-[1.3em] lg:text-[1.6em] leading-[1.5em] lg:leading-[1.2em] xl:leading-tight bottom-[5%] xl:bottom-[7%] left-[60%] lg:left-[53%] xl:left-[54%]
+                            ${ismobile? "!static hidden" : ""}
+                        `}>
                             {'var me = “ME”;'}
                             <br />
                             {'var you = “YOU”;'}
@@ -112,7 +126,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                         </h2>
                     </div>
                 </div>
-                <ContactButtons />
+                <ContactButtons ismobile={ismobile} />
             </div>
     );
 }

@@ -2,14 +2,19 @@ const backArrow = <svg width="35" height="38" viewBox="0 0 35 38" fill="none" xm
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M32.8473 37.3962C33.9519 37.3962 34.8473 36.5008 34.8473 35.3962V15.555C34.8473 12.1483 32.4346 8.8402 28.5616 8.8402H7.79809L13.3924 3.43881C14.187 2.67158 14.2092 1.40545 13.442 0.610821C12.6747 -0.183807 11.4086 -0.206013 10.614 0.561218L0 10.8093L10.583 21.4815C11.3608 22.2659 12.6271 22.2712 13.4114 21.4934C14.1957 20.7156 14.2011 19.4493 13.4233 18.665L7.64721 12.8402H28.5616C29.7536 12.8402 30.8473 13.854 30.8473 15.555V35.3962C30.8473 36.5008 31.7427 37.3962 32.8473 37.3962Z" fill="white"/>
             </svg>
 interface props {
-    handleBackButton: () => void
+    handleBackButton: () => void,
+    ismobile?: boolean
 }
 
 const Back = (props: props) => {
-    const {handleBackButton} = props;
+    const {handleBackButton, ismobile} = props;
+
     return(
-        <div className=" absolute p-[5px] left-[60px] lg:left-[100px] top-[50px] h-[48px] ">
-            <button onClick={handleBackButton}>
+        <div className={
+            `absolute p-[5px] h-[48px]
+            ${ismobile? "left-[10px] top-[15px] [&_svg]:w-[28px]" : "left-[60px] lg:left-[100px] top-[50px]"}
+        `}>
+            <button type="button" onClick={handleBackButton}>
                 {backArrow}
             </button>
         </div>

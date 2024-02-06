@@ -34,7 +34,11 @@ class Slide extends Component<SlideProps> {
         );
 
         return <div {...otherProps} 
-            className={` fixed px-[30px] lg:px-[50px] pb-[40px] ${this.props.className? this.props.className : ""} `}
+            className={
+                `fixed 
+                ${this.props.className? this.props.className : ""}
+                ${ismobile? "px-[4px] pb-[30px]" : "px-[30px] lg:px-[50px] pb-[40px]"}
+            `}
             style={{
                 width: `${newViewportWidth}px`,
                 height: `${newviewportHeigth}px`

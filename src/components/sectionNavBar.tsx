@@ -3,15 +3,16 @@ import Logo from "./logo";
 
 interface props {
     title: string,
-    handleBackButton: () => void
+    handleBackButton: () => void,
+    ismobile?: boolean
 }
 
 const SectionNavBar = (props: props) => {
-    const { title, handleBackButton } = props;
+    const { title, handleBackButton, ismobile } = props;
     
     return(
         <div>
-            <Back handleBackButton={handleBackButton} />
+            <Back handleBackButton={handleBackButton} ismobile={ismobile} />
                 <nav className=" py-[15px]">
                     <div className="flex flex-col">
                         <Logo className=" self-end mr-[35px]" />

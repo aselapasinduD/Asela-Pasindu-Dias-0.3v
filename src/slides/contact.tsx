@@ -18,6 +18,8 @@ type childrenProps = props & ismobile;
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
 
+    console.log("Is Mobile: " + ismobile);
+
     const handleclick = () => {
         const contactElement = document.getElementById("contact")?.style;
         if(contactElement) contactElement.top = `-${ViewportSize[1]}px`;
@@ -26,7 +28,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     return (
         <div className={`contact ${className? className: ""} bg-orange w-[100%] h-[100%]`}>
-            <SectionNavBar title="CONTACT" handleBackButton={handleclick} />
+            <SectionNavBar title="CONTACT" handleBackButton={handleclick} ismobile={ismobile} />
             <h1 className=" text-center ">Under Construction</h1>
         </div>
     );
