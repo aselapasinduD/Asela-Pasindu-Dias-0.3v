@@ -55,8 +55,8 @@ const headTopic = () => {
         <div className=" leading-[5em]">
             {wordList.map((oneWord, index) => {
                 return(
-                    <div key={index} className="tracking-[0.5em] w-[100%]">
-                        <div><h1 className=" text-[3rem] leading-none ">{oneWord.toUpperCase()}</h1></div>
+                    <div key={index} className="tracking-[0.6em] w-[100%]">
+                        <div><h1 className=" text-[3rem] mb390:text-[4rem] leading-none ">{oneWord.toUpperCase()}</h1></div>
                     </div>
                 )
             })}
@@ -86,7 +86,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 <div className=" flex flex-col flex-1 border-[3px] border-orange rounded-[20px] ">
                     <Menu ismobile={ismobile} />
                     <div className={
-                        `home-main relative h-[100%] ml-[8px] mb-[14px]
+                        `home-main relative h-[100%] mx-[8px] mb-[14px] 
+                        mb390:mb-[70px]
                     `}>
                         <p className={
                             `static tracking-[0.3em] text-[1.2rem] text-center pt-[10px]

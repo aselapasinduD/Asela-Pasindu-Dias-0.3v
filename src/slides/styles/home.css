@@ -23,6 +23,18 @@
     background-position: left bottom;
 }
 
+@media screen and (min-width: 390px) {
+    .home-main::after {
+        left: 30px;
+        background-size: 500px;
+    }
+}
+@media screen and (min-width: 400px) {
+    .home-main::after {
+        left: 30px;
+        background-size: 540px;
+    }
+}
 
 @media screen and (min-width: 1024px) {
     .home-main::after {

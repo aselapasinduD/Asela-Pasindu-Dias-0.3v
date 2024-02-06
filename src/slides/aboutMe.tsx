@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import Slide from "../components/slide";
 import SectionNavBar from "../components/sectionNavBar";
 import ContactButtons from "../components/contactButtons";
@@ -25,17 +23,16 @@ type childrenProps = props & ismobile;
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
 
-    console.log("Is Mobile: " + ismobile);
-
     const handleClick = () => {
         const contactElement = document.getElementById("aboutme")?.style;
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
     }
-    handleClick();
+    // handleClick();
 
     const BringFrontSkillsSlide = () => {
         const contactElement = document.getElementById("skills")?.style;
         if(contactElement) contactElement.bottom = '0px';
+
     }
 
     const BringFrontEducationsSlide = () => {
@@ -54,6 +51,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             <div className={
                 `text-[1.2rem] flex flex-col absolute right-[12px] top-[76px]
                 [&_h1]:leading-[3rem] [&_h1]:text-end
+                mb390:text-[1.4rem] mb390:[&_h1]:leading-tight mb390:top-[92px]
             `}>
                 <button type="button" onClick={BringFrontSkillsSlide}>
                     <h1>SKILLS</h1>
@@ -68,6 +66,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             <div className={
                 `flex-grow flex flex-col justify-around leading-none
                 mb-[54px] text-[0.9rem]
+                mb390:px-[6px] mb390:text-[1.1rem]
             `}>
                 <p className={
                     `w-[50%] font-bold

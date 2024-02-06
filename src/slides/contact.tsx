@@ -1,5 +1,4 @@
 import Slide from "../components/slide";
-import Back from "../components/back";
 import SectionNavBar from "../components/sectionNavBar";
 
 import "./styles/contact.css";

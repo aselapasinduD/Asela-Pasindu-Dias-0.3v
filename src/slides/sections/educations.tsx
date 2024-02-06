@@ -1,6 +1,5 @@
 import Slide from "../../components/slide";
 import SectionNavBar from "../../components/sectionNavBar";
-import ContactButtons from "../../components/contactButtons";
 
 interface props {
     ViewportSize: number[],

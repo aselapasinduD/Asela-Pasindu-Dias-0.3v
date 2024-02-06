@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{tsx,ts}"
   ],
   theme: {
+    screens: {
+      "mb390": "390px"
+    },
     colors: {
       "orange": "#ff6600",
       "black": "#000000"
