@@ -29,7 +29,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         const contactElement = document.getElementById("aboutme")?.style;
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
     }
-    // handleClick();
+    handleClick();
 
     const BringFrontSkillsSlide = () => {
         const contactElement = document.getElementById("skills")?.style;
@@ -65,7 +65,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             </div>
             <div className={
                 `flex-grow flex flex-col justify-around leading-none
-                mb-[54px]
+                mb-[54px] text-[0.9rem]
             `}>
                 <p className={
                     `w-[50%] font-bold
