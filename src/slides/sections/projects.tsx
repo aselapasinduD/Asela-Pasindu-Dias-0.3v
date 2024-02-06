@@ -3,8 +3,9 @@ import SectionNavBar from "../../components/sectionNavBar";
 import ContactButtons from "../../components/contactButtons";
 
 interface props {
-    ViewportSize: number[];
-    className?: string
+    ViewportSize: number[],
+    className?: string,
+    ismobile?: boolean
 }
 
 interface ismobile {
@@ -24,16 +25,16 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     return(
         <div className="bg-black w-[100%] h-[100%]">
-            <SectionNavBar title="PROJECTS" handleBackButton={handleClick} />
+            <SectionNavBar title="PROJECTS" handleBackButton={handleClick} ismobile={ismobile} />
             <h1 className="text-center">Under Construction</h1>
-            <ContactButtons />
         </div>
     );
 }
 
 const Projects = (props: props) => {
+    const {ismobile} = props;
     return(
-        <Slide id="projects" className="translate-x-[-30px] lg:translate-x-[-50px]" >
+        <Slide id="projects" className={`${ismobile? "translate-x-[-4px]" : "translate-x-[-30px] lg:translate-x-[-50px]" }`} >
             <ChildrenWithProps {...props} />
         </Slide>
     );

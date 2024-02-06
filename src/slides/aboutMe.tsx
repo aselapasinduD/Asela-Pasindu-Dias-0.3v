@@ -65,7 +65,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             </div>
             <div className={
                 `flex-grow flex flex-col leading-tight
-                ${ismobile? "ml-[0] px-[4px] text-[1rem] gap-[20px] z-[1]" : "ml-[90px] lg:ml-[120px] text-[1.1rem] xl:text-[1.24rem] justify-evenly"}
+                ${ismobile? "ml-[0] px-[4px] text-[1rem] gap-[20px]" : "ml-[90px] lg:ml-[120px] text-[1.1rem] xl:text-[1.24rem] justify-evenly"}
             `}>
                 <p className={
                     `font-bold
@@ -107,9 +107,9 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 </svg>
             </div>
             <ContactButtons ismobile={ismobile} />
-            <Skills ViewportSize={ViewportSize} />
-            <Educations ViewportSize={ViewportSize} />
-            <Projects ViewportSize={ViewportSize} />
+            <Skills ViewportSize={ViewportSize} ismobile={ismobile} />
+            <Educations ViewportSize={ViewportSize} ismobile={ismobile} />
+            <Projects ViewportSize={ViewportSize} ismobile={ismobile} />
         </div>
     );
 }
