@@ -16,6 +16,8 @@ const Menu = (props: props) => {
             mb400:text-[0.9rem]
             sm:text-[1rem] sm:gap-[40px]
             md:text-[1.2rem]
+            lg:justify-end lg:mr-[10%]
+            xl:mr-[12%] xl:gap-[60px]
         `}>
             <button onClick={() => moveAboutMeSlide()}>ABOUT ME</button>
             <a href="#">VEBDRAKstudio</a>

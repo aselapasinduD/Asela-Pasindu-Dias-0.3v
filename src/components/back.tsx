@@ -15,6 +15,8 @@ const Back = (props: props) => {
             `absolute p-[5px] h-[48px] left-[10px] top-[4px] [&_svg]:w-[20px]
             sm:[&_svg]:w-[30px]
             md:top-[14px]
+            lg:left-[50px]
+            xl:left-[100px] xl:top-[26px]
         `}>
             <button type="button" onClick={handleBackButton}>
                 {backArrow}

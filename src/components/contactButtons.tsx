@@ -1,9 +1,10 @@
 interface props {
-    ismobile?: boolean
+    ismobile?: boolean,
+    className?: string
 }
 
 const ContactButtons = (props: props) => {
-    const {ismobile} = props;
+    const {ismobile, className} = props;
 
     const handleContactButton = () => {
         console.log("Click is Working");
@@ -20,6 +21,8 @@ const ContactButtons = (props: props) => {
             `w-max absolute flex gap-[40px] left-[50%] translate-x-[-50%] bottom-[4%]
             [&>button]:bg-orange [&>button]:rounded-[8px] [&>button]:px-[16px]
             sm:text-[1.4rem]
+            lg:translate-x-[40%] lg:text-[1.6rem] lg:gap-[60px]
+            ${className? className : ""}
         `}>
             <button onClick={handleSendMailButton}><h3>SEND MAIL</h3></button>
             <button onClick={handleContactButton}><h3>CONTACT ME</h3></button>

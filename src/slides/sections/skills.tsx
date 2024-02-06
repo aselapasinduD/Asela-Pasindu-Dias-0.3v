@@ -33,7 +33,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 const Skills = (props: props) => {
     const {ismobile} = props;
     return(
-        <Slide id="skills" className={`${ismobile? "translate-x-[-4px]" : "translate-x-[-30px] lg:translate-x-[-50px]" }`}>
+        <Slide id="skills" className={`translate-x-[-4px] sm:translate-x-[-12px] xl:translate-x-[-50px]`}>
             <ChildrenWithProps {...props} />
         </Slide>
     );

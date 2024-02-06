@@ -53,12 +53,19 @@
 
 @media screen and (min-width: 1024px) {
     .home-main::after {
-        height: 100%;
+        height: 101%;
+        background-size: 640px;
+    }
+    .home-main::before {
+        background-size: 760px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .home-main::after {
         background-size: 640px;
+    }
+    .home-main::before {
+        background-size: contain;
     }
 }

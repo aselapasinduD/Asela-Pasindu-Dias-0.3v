@@ -55,12 +55,14 @@ const headTopic = () => {
         <div className=" leading-[5em]">
             {wordList.map((oneWord, index) => {
                 return(
-                    <div key={index} className="tracking-[0.6rem] w-[100%] sm:tracking-[0.9rem]">
+                    <div key={index} className="tracking-[0.6rem] w-[100%] sm:tracking-[0.9rem] lg:tracking-[0.6rem]">
                         <div>
                             <h1
                                 className="
                                     text-[3rem] mb390:text-[4rem] leading-none
                                     sm:text-[4.5rem] sm:text-end
+                                    lg:text-start
+                                    xl:leading-tight
                                 ">
                                 {oneWord.toUpperCase()}
                             </h1>
@@ -88,6 +90,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                             flex grow gap-[18px] socilIcons
                             [&_svg]:w-[20px] [&_svg]:h-[20px]
                             sm:[&_svg]:w-[26px] sm:[&_svg]:h-[26px]
+                            lg:[&_svg]:w-[32px] lg:[&_svg]:h-[32px]
                         ">
                         {socialIconList.map((socialIcon, index) => {
                             return <span key={index} className=" socialIcon block ">
@@ -102,21 +105,28 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     <div className={
                         `home-main relative h-[100%] mx-[8px] mb-[14px] 
                         mb390:mb-[70px]
+                        lg:mb-[30px]
                     `}>
                         <p className={
                             `static tracking-[0.3rem] text-[1.2rem] text-center pt-[10px]
                             sm:text-[1.4rem] sm:tracking-[0.5rem]
                             md:py-[18px] md:text-[1.7rem]
+                            lg:absolute lg:left-[20%] lg:top-[11%]
+                            xl:left-[35%] xl:text-[1.1rem] xl:top-[24%] xl:py-[0px]
                         `}>
                             WELCOME TO MY HOME
                         </p>
                         <div className={
                             `static
+                            lg:absolute lg:left-[72%] lg:top-[6%]
+                            xl:left-[62%]
                         `}>
                             {headTopic()}
                         </div>
                         <h2 className={
                             `hidden
+                            lg:block lg:absolute lg:left-[680px] lg:top-[48%]
+                            xl:top-[44%] xl:left-[670px]
                         `}>
                             {'var me = “ME”;'}
                             <br />
