@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Slide from "../components/slide";
 import SectionNavBar from "../components/sectionNavBar";
 import ContactButtons from "../components/contactButtons";

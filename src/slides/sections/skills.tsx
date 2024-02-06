@@ -1,6 +1,6 @@
 import Slide from "../../components/slide";
 import SectionNavBar from "../../components/sectionNavBar";
-import ContactButtons from "../../components/contactButtons";
+import { useEffect } from "react";
 
 interface props {
     ViewportSize: number[],
@@ -22,6 +22,19 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
     }
     handleClick();
+
+    useEffect(()=> {
+        const handleBackButtonEvent = (e: any) => {
+            e.preventDefault();
+            handleClick();
+        } ;
+
+        window.addEventListener('popstate', handleBackButtonEvent);
+
+        return () => {
+            window.removeEventListener('popstate', handleBackButtonEvent);
+        };
+    },[]);
 
     return(
         <div className={`bg-black w-[100%] h-[100%] ${className? className : "" }`}>
