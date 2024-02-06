@@ -29,7 +29,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         const contactElement = document.getElementById("aboutme")?.style;
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
     }
-    // handleClick();
+    handleClick();
 
     const BringFrontSkillsSlide = () => {
         const contactElement = document.getElementById("skills")?.style;
