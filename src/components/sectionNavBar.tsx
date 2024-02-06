@@ -13,9 +13,9 @@ const SectionNavBar = (props: props) => {
     return(
         <div>
             <Back handleBackButton={handleBackButton} ismobile={ismobile} />
-                <nav className=" py-[15px]">
+                <nav className=" py-[8px]">
                     <div className="flex flex-col">
-                        <Logo className=" self-end mr-[35px]" />
+                        <Logo className=" self-end mr-[24px]" />
                         <h1 className=" leading-none self-center ">{title}</h1>
                     </div>
                 </nav>

@@ -56,7 +56,7 @@ const headTopic = () => {
             {wordList.map((oneWord, index) => {
                 return(
                     <div key={index} className="tracking-[0.5em] w-[100%]">
-                        <div><h1 className=" text-[3.8rem] xl:text-[4.6rem] leading-none lg:leading-tight ">{oneWord.toUpperCase()}</h1></div>
+                        <div><h1 className=" text-[3rem] leading-none ">{oneWord.toUpperCase()}</h1></div>
                     </div>
                 )
             })}
@@ -70,9 +70,11 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     console.log("Is Mobile: " + ismobile);
 
     return (
-        <div className={` home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
-                <nav className="flex w-[100%] items-center py-[15px] px-[35px]">
-                    <span className="flex grow gap-[20px] socilIcons">
+        <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
+                <nav className={
+                    `flex w-[100%] items-center py-[8px] px-[24px]
+                `}>
+                    <span className="flex grow gap-[18px] socilIcons [&_svg]:w-[20px] [&_svg]:h-[20px]">
                         {socialIconList.map((socialIcon, index) => {
                             return <span key={index} className=" socialIcon block ">
                                 <a href={socialIcon.url}>{socialIcon.icon}</a>
@@ -81,27 +83,23 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     </span>
                     <Logo />
                 </nav>
-                <div className=" flex flex-col flex-1 border-[3px] border-orange rounded-[30px] ">
+                <div className=" flex flex-col flex-1 border-[3px] border-orange rounded-[20px] ">
                     <Menu ismobile={ismobile} />
                     <div className={
-                        `home-main relative h-[100%]
-                        ${ismobile? "ml-[10px] mb-[18px] after:!bottom-[30px] before:!bottom-[31px] after:!left-[22px] after:!h-[80%] before:!h-[80%]" : "ml-[28px] mb-[32px]"}
+                        `home-main relative h-[100%] ml-[8px] mb-[14px]
                     `}>
                         <p className={
-                            `absolute tracking-[0.3em] text-[1.1rem] top-[23.5%] xl:top-[24.5%] left-[39%] lg:left-[34%] xl:left-[39%]
-                            ${ismobile? "!static text-[1.3rem] text-center my-[3%] " : ""}
+                            `static tracking-[0.3em] text-[1.2rem] text-center pt-[10px]
                         `}>
                             WELCOME TO MY HOME
                         </p>
                         <div className={
-                            `absolute top-[10%] lg:top-[4%] xl:top-[7%] left-[69%] lg:left-[62%]
-                            ${ismobile? "!static " : ""}
+                            `static
                         `}>
                             {headTopic()}
                         </div>
                         <h2 className={
-                            `absolute text-[1.3em] lg:text-[1.6em] leading-[1.5em] lg:leading-[1.2em] xl:leading-tight bottom-[5%] xl:bottom-[7%] left-[60%] lg:left-[53%] xl:left-[54%]
-                            ${ismobile? "!static hidden" : ""}
+                            `hidden
                         `}>
                             {'var me = “ME”;'}
                             <br />

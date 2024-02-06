@@ -11,13 +11,17 @@ const ContactButtons = (props: props) => {
         if(contactElement) contactElement.top ="0";
     }
 
+    const handleSendMailButton = () => {
+        console.log("Send Mail Button is Working");
+    }
+
     return(
         <div className={
-            `flex absolute lg:text-[1.2rem] xl:text-[1.5rem] gap-[50px] right-[9%] lg:right-[15%] xl:right-[14%] z-[9999]
-            ${ismobile? "bottom-[4.5%]" : "bottom-[8%]"}
+            `w-max absolute flex gap-[40px] left-[50%] translate-x-[-50%] bottom-[4%]
+            [&>button]:bg-orange [&>button]:rounded-[8px] [&>button]:px-[16px]
         `}>
-            <button className=" bg-orange rounded-[8px] px-[16px] "><h3>SEND MAIL</h3></button>
-            <button onClick={handleContactButton} className=" bg-orange rounded-[8px] px-[16px] "><h3>CONTACT ME</h3></button>
+            <button onClick={handleSendMailButton}><h3>SEND MAIL</h3></button>
+            <button onClick={handleContactButton}><h3>CONTACT ME</h3></button>
         </div>
     );
 }
