@@ -52,6 +52,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 `text-[1.2rem] flex flex-col absolute right-[12px] top-[76px]
                 [&_h1]:leading-[3rem] [&_h1]:text-end
                 mb390:text-[1.4rem] mb390:[&_h1]:leading-tight mb390:top-[92px]
+                sm:text-[1.8rem] sm:mr-[50px]
+                md:text-[1.9rem] md:top-[100px] md:right-[45px]
             `}>
                 <button type="button" onClick={BringFrontSkillsSlide}>
                     <h1>SKILLS</h1>
@@ -65,8 +67,10 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             </div>
             <div className={
                 `flex-grow flex flex-col justify-around leading-none
-                mb-[54px] text-[0.9rem]
+                mb-[54px] text-[0.9rem] px-[2px]
                 mb390:px-[6px] mb390:text-[1.1rem]
+                sm:text-[1.4rem]
+                md:justify-evenly md:text-[1.5rem]
             `}>
                 <p className={
                     `w-[50%] font-bold

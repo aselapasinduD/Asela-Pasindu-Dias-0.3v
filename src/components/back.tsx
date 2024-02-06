@@ -13,6 +13,8 @@ const Back = (props: props) => {
     return(
         <div className={
             `absolute p-[5px] h-[48px] left-[10px] top-[4px] [&_svg]:w-[20px]
+            sm:[&_svg]:w-[30px]
+            md:top-[14px]
         `}>
             <button type="button" onClick={handleBackButton}>
                 {backArrow}

@@ -55,8 +55,16 @@ const headTopic = () => {
         <div className=" leading-[5em]">
             {wordList.map((oneWord, index) => {
                 return(
-                    <div key={index} className="tracking-[0.6em] w-[100%]">
-                        <div><h1 className=" text-[3rem] mb390:text-[4rem] leading-none ">{oneWord.toUpperCase()}</h1></div>
+                    <div key={index} className="tracking-[0.6rem] w-[100%] sm:tracking-[0.9rem]">
+                        <div>
+                            <h1
+                                className="
+                                    text-[3rem] mb390:text-[4rem] leading-none
+                                    sm:text-[4.5rem] sm:text-end
+                                ">
+                                {oneWord.toUpperCase()}
+                            </h1>
+                        </div>
                     </div>
                 )
             })}
@@ -73,8 +81,14 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
                 <nav className={
                     `flex w-[100%] items-center py-[8px] px-[24px]
+                    md:py-[12px] md:px-[28px]
                 `}>
-                    <span className="flex grow gap-[18px] socilIcons [&_svg]:w-[20px] [&_svg]:h-[20px]">
+                    <span 
+                        className="
+                            flex grow gap-[18px] socilIcons
+                            [&_svg]:w-[20px] [&_svg]:h-[20px]
+                            sm:[&_svg]:w-[26px] sm:[&_svg]:h-[26px]
+                        ">
                         {socialIconList.map((socialIcon, index) => {
                             return <span key={index} className=" socialIcon block ">
                                 <a href={socialIcon.url}>{socialIcon.icon}</a>
@@ -90,7 +104,9 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                         mb390:mb-[70px]
                     `}>
                         <p className={
-                            `static tracking-[0.3em] text-[1.2rem] text-center pt-[10px]
+                            `static tracking-[0.3rem] text-[1.2rem] text-center pt-[10px]
+                            sm:text-[1.4rem] sm:tracking-[0.5rem]
+                            md:py-[18px] md:text-[1.7rem]
                         `}>
                             WELCOME TO MY HOME
                         </p>

@@ -36,6 +36,7 @@ class Slide extends Component<SlideProps> {
         return <div {...otherProps} 
             className={
                 `fixed px-[4px] pb-[6px]
+                sm:pb-[18px] sm:px-[12px]
                 ${this.props.className? this.props.className : ""}
             `}
             style={{

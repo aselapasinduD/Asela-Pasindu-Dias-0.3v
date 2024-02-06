@@ -19,6 +19,7 @@ const ContactButtons = (props: props) => {
         <div className={
             `w-max absolute flex gap-[40px] left-[50%] translate-x-[-50%] bottom-[4%]
             [&>button]:bg-orange [&>button]:rounded-[8px] [&>button]:px-[16px]
+            sm:text-[1.4rem]
         `}>
             <button onClick={handleSendMailButton}><h3>SEND MAIL</h3></button>
             <button onClick={handleContactButton}><h3>CONTACT ME</h3></button>

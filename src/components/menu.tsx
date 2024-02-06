@@ -14,6 +14,8 @@ const Menu = (props: props) => {
         <div  className={
             `flex justify-center text-[0.8rem] gap-[30px] pt-[10px]
             mb400:text-[0.9rem]
+            sm:text-[1rem] sm:gap-[40px]
+            md:text-[1.2rem]
         `}>
             <button onClick={() => moveAboutMeSlide()}>ABOUT ME</button>
             <a href="#">VEBDRAKstudio</a>

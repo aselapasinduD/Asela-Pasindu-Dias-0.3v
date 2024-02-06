@@ -35,6 +35,21 @@
         background-size: 540px;
     }
 }
+@media screen and (min-width: 640px) {
+    .home-main::after {
+        left: 10px;
+        background-size: 620px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .home-main::after {
+        left: 0px;
+        background-size: 620px;
+    }
+    .home-main::before {
+        background-size: 720px;
+    }
+}
 
 @media screen and (min-width: 1024px) {
     .home-main::after {
