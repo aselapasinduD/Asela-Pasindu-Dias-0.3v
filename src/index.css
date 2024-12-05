@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --primary-color: black;
+  --secondary-color: #ff6600;
+  --tertiary-color: white;
+}
+
 * {
   /* outline: 1px dashed red; */
   margin: 0;
@@ -45,3 +51,79 @@ body {
   /* padding-left: 60px;
   padding-right: 60px; */
 }
+
+.loadingscreen {
+  --animation-play-time: 1s;
+}
+.loadingscreen .logo-icon-1 {
+  animation: moveX1 var(--animation-play-time) ease-in-out infinite alternate;
+}
+.loadingscreen .logo-icon-2 {
+  animation: moveXY2 var(--animation-play-time) ease-in-out infinite alternate;
+}
+.loadingscreen .logo-icon-3 {
+  animation: moveX3 var(--animation-play-time) ease-in-out infinite alternate;
+}
+/* .loadscreen .stopanimate{
+  animation-play-state: paused;
+} */
+
+@keyframes moveX1 {
+  from {
+    transform: translate(10px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveXY2 {
+  from {
+    transform: translate(-3px, 20px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveX3 {
+  from {
+    transform: translate(-14px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+.loadingscreen #loading-screen-1 {
+  animation: loadingScreen1 var(--animation-play-time) ease-in-out 5s forwards;
+}
+.loadingscreen #loading-screen-2 {
+  animation: loadingScreen2 var(--animation-play-time) ease-in-out 5s forwards;
+}
+.loadingscreen #loading-screen-3 {
+  animation: loadingScreen3 var(--animation-play-time) ease-in-out 5s forwards;
+}
+@keyframes loadingScreen1 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes loadingScreen2 {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes loadingScreen3 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
