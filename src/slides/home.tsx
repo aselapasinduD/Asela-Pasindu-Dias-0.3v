@@ -210,7 +210,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     </h2>
                 </div>
             </div>
-            <ContactButtons ismobile={ismobile} />
+            <ContactButtons ismobile={ismobile} ViewportSize={ViewportSize} />
         </div>
     );
 }

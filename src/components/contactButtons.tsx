@@ -1,16 +1,15 @@
+import { useAppDispatch, useAppSelector } from "../states/hooks";
+import { toggleSection } from "../states/sectionSlice";
+
 interface props {
     ismobile?: boolean,
-    className?: string
+    className?: string,
+    ViewportSize: number[],
 }
 
 const ContactButtons = (props: props) => {
-    const {ismobile, className} = props;
-
-    const handleContactButton = () => {
-        console.log("Click is Working");
-        const contactElement = document.getElementById("contact")?.style;
-        if(contactElement) contactElement.top ="0";
-    }
+    const {ismobile, ViewportSize, className} = props;
+    const dispatch = useAppDispatch();
 
     const handleSendMailButton = () => {
         console.log("Send Mail Button is Working");
@@ -24,8 +23,8 @@ const ContactButtons = (props: props) => {
             lg:translate-x-[40%] lg:text-[1.6rem] lg:gap-[60px]
             ${className? className : ""}
         `}>
-            <button onClick={handleSendMailButton}><h3>SEND MAIL</h3></button>
-            <button onClick={handleContactButton}><h3>CONTACT ME</h3></button>
+            <button onClick={(handleSendMailButton)}><h3>SEND MAIL</h3></button>
+            <button onClick={() => dispatch(toggleSection('contactSection'))}><h3>CONTACT ME</h3></button>
         </div>
     );
 }

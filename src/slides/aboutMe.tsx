@@ -45,7 +45,13 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     const [counterProjectsSection, setCounterProjectsSection] = useState<number>(0);
     const [projectsSectionIndex, setProjectsSectionIndex] = useState<number>(0);
 
+    const [titleAnimate, setTitleAnimate] = useState<string[]>([]);
+    const [counterTitle, setCounterTitle] = useState<number>(0);
+    const [titleIndex, setTitleIndex] = useState<number>(0);
+
     const sectionList = ["SKILLS", "EDUCATIONS", "PROJECTS"];
+
+    const title = "WHO AM I";
 
     useEffect(() => {
         if(isOpenAboutSection){
@@ -57,7 +63,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     }, [counterSkillsSection, skillsSectionIndex, isOpenAboutSection]);
     useEffect(() => {
         if(isOpenAboutSection){
-            helper.StringAnimation(0.5, sectionList[1], educationsSectionIndex, counterEducationsSection, setEducationsSectionIndex, setCounterEducationsSection, setEducationsSection, true, false)
+            helper.StringAnimation(0.3, sectionList[1], educationsSectionIndex, counterEducationsSection, setEducationsSectionIndex, setCounterEducationsSection, setEducationsSection, true, false)
         } else {
             setCounterEducationsSection(0);
             setEducationsSectionIndex(0);
@@ -65,22 +71,24 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     }, [counterEducationsSection, educationsSectionIndex, isOpenAboutSection]);
     useEffect(() => {
         if(isOpenAboutSection){
-            helper.StringAnimation(0.5, sectionList[2], projectsSectionIndex, counterProjectsSection, setProjectsSectionIndex, setCounterProjectsSection, setProjectsSection, true, false)
+            helper.StringAnimation(0.4, sectionList[2], projectsSectionIndex, counterProjectsSection, setProjectsSectionIndex, setCounterProjectsSection, setProjectsSection, true, false)
         } else {
-            setCounterSkillsSection(0);
-            setSkillsSectionIndex(0);
+            setCounterProjectsSection(0);
+            setProjectsSectionIndex(0);
         };
     }, [counterProjectsSection, projectsSectionIndex, isOpenAboutSection]);
-
-    const listOfSectionHandleFunctions = {
-        "skills" : 'skillsSection',
-        "educations" : 'educationsSection',
-        "projects" : 'projectsSection'
-    };
+    useEffect(() => {
+        if(isOpenAboutSection){
+            helper.StringAnimation(0.2, title, titleIndex, counterTitle, setTitleIndex, setCounterTitle, setTitleAnimate, true, false)
+        } else {
+            setCounterTitle(0);
+            setTitleIndex(0);
+        }
+    }, [counterTitle, titleIndex, isOpenAboutSection]);
 
     return (
         <div className={`aboutme flex flex-col bg-black w-[100%] h-[100%] ${className? className : ""}`}>
-            <SectionNavBar title="WHO AM I" handleBackButton={() => dispatch(closeSection('aboutMeSection'))} ismobile={ismobile} />
+            <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('aboutMeSection'))} ismobile={ismobile} />
             <div className={`
                 text-[1.2rem] flex flex-col absolute right-[12px] top-[76px]
                 [&_h1]:leading-[3rem] [&_h1]:text-end
@@ -90,13 +98,13 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 lg:top-[180px] lg:text-[2rem] lg:right-[60px]
             `}>
                 <button type="button" onClick={() => dispatch(toggleSection('skillsSection'))}>
-                    <h1>{skillsSection}</h1>
+                    <h1>{skillsSection[0]}</h1>
                 </button>
                 <button type="button" onClick={() => dispatch(toggleSection('educationsSection'))}>
-                    <h1>{educationsSection}</h1>
+                    <h1>{educationsSection[0]}</h1>
                 </button>
                 <button type="button" onClick={() => dispatch(toggleSection('projectsSection'))}>
-                    <h1>{projectsSection}</h1>
+                    <h1>{projectsSection[0]}</h1>
                 </button>
             </div>
             <div className={`
@@ -146,7 +154,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     <polygon points="2,6 2,260 220,380" fill="transparent" stroke="#ff6600" strokeWidth="3" />
                 </svg>
             </div>
-            <ContactButtons ismobile={ismobile} className="z-[9999]" />
+            <ContactButtons ismobile={ismobile} ViewportSize={ViewportSize} className="z-[9999]" />
             <Skills ViewportSize={ViewportSize} ismobile={ismobile} />
             <Educations ViewportSize={ViewportSize} ismobile={ismobile} />
             <Projects ViewportSize={ViewportSize} ismobile={ismobile} />

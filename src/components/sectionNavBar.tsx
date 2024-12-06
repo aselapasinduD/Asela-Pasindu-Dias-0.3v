@@ -1,5 +1,9 @@
+import { useEffect, useState } from "react";
+
 import Back from "./back";
 import Logo from "./logo";
+import Helper from "../helper/helper";
+import { useAppSelector } from "../states/hooks";
 
 interface props {
     title: string,
@@ -9,7 +13,7 @@ interface props {
 
 const SectionNavBar = (props: props) => {
     const { title, handleBackButton, ismobile } = props;
-    
+
     return(
         <div>
             <Back handleBackButton={handleBackButton} ismobile={ismobile} />

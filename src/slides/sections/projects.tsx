@@ -3,6 +3,8 @@ import SectionNavBar from "../../components/sectionNavBar";
 
 import { useAppSelector, useAppDispatch } from "../../states/hooks";
 import { closeSection } from "../../states/sectionSlice";
+import { useEffect, useState } from "react";
+import Helper from "../../helper/helper";
 
 interface props {
     ViewportSize: number[],
@@ -17,10 +19,29 @@ type childrenProps = props & ismobile;
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
     const dispatch = useAppDispatch();
+    const helper = new Helper();
+
+    const isOpenProjectsSection = useAppSelector((state) => state.section.projectsSection);
+
+    const [titleAnimate, setTitleAnimate] = useState<string[]>([]);
+    const [counter, setCounter] = useState<number>(0);
+    const [titleIndex, setTitleIndex] = useState<number>(0);
+
+    const title = "PROJECTS";
+
+    useEffect(() => {
+        if(isOpenProjectsSection){
+            helper.StringAnimation(0.2, title, titleIndex, counter, setTitleIndex, setCounter, setTitleAnimate, true, false)
+        } else {
+            setCounter(0);
+            setTitleIndex(0);
+        }
+    }, [counter, titleIndex, isOpenProjectsSection]);
+    
 
     return(
         <div className="bg-black w-[100%] h-[100%]">
-            <SectionNavBar title="PROJECTS" handleBackButton={() => dispatch(closeSection('projectsSection'))} ismobile={ismobile} />
+            <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('projectsSection'))} ismobile={ismobile} />
             <h1 className="text-center">Under Construction</h1>
         </div>
     );
