@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App flex justify-center">
-      <Home ViewportSize={viewportSize} />
+      <Home ViewportSize={viewportSize}/>
       <Contact ViewportSize={viewportSize} />
       <AboutMe ViewportSize={viewportSize}/>
     </div>

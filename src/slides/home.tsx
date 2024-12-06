@@ -41,7 +41,7 @@ const socialIconList = [
 
 interface props {
     ViewportSize: number[],
-    className?: string
+    className?: string,
 }
 
 interface ismobile {
@@ -53,40 +53,58 @@ type childrenProps = props & ismobile;
 const HeadTopic = () => {
     const [stringList, setStringList] = useState<string[]>([]);
     const [counter, setCounter] = useState<number>(0);
-    const [counterLimit, setCounterLimit] = useState<number>(0);
+    const [topicIndex, setTopicIndex] = useState<number>(0);
+    const helper = new Helper();
 
-    const topic1 = "Asela Pasindu Dias";
-    const topic2 = "Full Stack Developer";
-    const topic3 = "Code Programmer Developer";
-    const topic1List = topic1.split(" ");
-    const topic2List = topic2.split(" ");
-    const topic3List = topic3.split(" ");
+    const topics = ["Asela Pasindu Dias", "Full Stack Developer", "Code Programmer Developer"];
 
+    // useEffect(() => {
+    //     const listOfCharacters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]|\\:;\"'<>,.?/~`";
+    //     const topicsList = topics.map((topic) => topic.split(" "));
 
-    const listOfCharacters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]|\\:;\"'<>,.?/~`";
+    //     if(topicIndex >= topicsList.length){
+    //         setTopicIndex(0);
+    //         return;
+    //     }
+
+    //     const topic = topicsList[topicIndex];
+    //     const counterLimit = topic.reduce((max, word) => Math.max(max, word.length), 0);
+
+    //     if(counter >= counterLimit){
+    //         setTimeout(() => {
+    //             setCounter(0);
+    //             setTopicIndex((prevIndex) => prevIndex + 1);
+    //         }, 1000 * 2)
+    //         return;
+    //     }
+    //     const stringAnimation = setInterval(() => {
+    //         const updatedList = topic.map((word)=> {
+    //             const targetWord = word.padEnd(counterLimit, " ");
+    //             const randomChar = listOfCharacters[Math.floor(Math.random() * listOfCharacters.length)];
+
+    //             word = counter < word.length ? targetWord.slice(0, counter) + randomChar + " ".repeat(targetWord.length - counter - 1): targetWord;
+    //             return word;
+    //         });
+    //         setStringList(updatedList);
+    //     }, 60);
+    //     const charAnimate = setTimeout(() => {
+    //         const updatedStrings = topic.map((word) => {
+    //             const targetWord = word.padEnd(counterLimit, " ");
+    //             return targetWord.slice(0, counter + 1) + " ".repeat(counterLimit - counter - 1)
+    //         });
+    //         setStringList(updatedStrings);
+    //         setCounter((prevCounter) => prevCounter + 1);
+    //         clearInterval(stringAnimation);
+    //     }, 1000);
+    //     return () => {
+    //         clearInterval(stringAnimation);
+    //         clearTimeout(charAnimate);
+    //     };
+    // }, [counter, topicIndex]);
 
     useEffect(() => {
-        setCounterLimit(topic1List.reduce((max, word) => Math.max(max, word.length), 0));
-    });
-
-    useEffect(() => {
-        // console.log(counterLimit);
-        if(counter > counterLimit){
-            return;
-        }
-        const stringAnimation = setInterval(() => {
-            const updatedList = topic1List.map((word)=> {
-                // console.log("before word: " + word.length);
-                const remaningLength = word.slice(counter, -1).length;
-                word = word.slice(0, counter) + " ".repeat(remaningLength);
-                // console.log("after word: " + word.length);
-                return`${word}-${counter}`
-            });
-            setStringList(updatedList);
-            setCounter((prevCounter) => prevCounter + 1)
-        }, 1000);
-        return () => clearInterval(stringAnimation);
-    }, [counter]);
+        helper.StringAnimation(0.6, topics, topicIndex, counter, setTopicIndex, setCounter, setStringList);
+    }, [counter, topicIndex]);
 
     return(
         <div className="leading-[5em]">
@@ -110,17 +128,17 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     console.log("Is Mobile: " + ismobile);
 
-    useEffect(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        if(loadingScreen){
-            const Loaded = setTimeout(() => {
-                loadingScreen.style.display = 'none';
-                loadingScreen.remove();
-            }, 1000 * 6);
+    // useEffect(() => {
+    //     const loadingScreen = document.getElementById('loading-screen');
+    //     if(loadingScreen){
+    //         const Loaded = setTimeout(() => {
+    //             loadingScreen.style.display = 'none';
+    //             loadingScreen.remove();
+    //         }, 1000 * 6);
 
-            return () => clearTimeout(Loaded);
-        }
-    });
+    //         return () => clearTimeout(Loaded);
+    //     }
+    // });
 
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
@@ -139,14 +157,14 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 <Logo />
             </nav>
             <div className="flex relative flex-col flex-1 border-[3px] border-orange rounded-[20px] overflow-hidden">
-                <div id="loading-screen" className="loadingscreen absolute w-full h-full z-10 [&_svg]:absolute [&_svg]:h-full [&_svg]:w-full [&_svg]:top-0 [&_svg]:left-0">
+                <div id="loading-screen" className="loadingscreen hidden absolute w-full h-full z-10 [&_svg]:absolute [&_svg]:h-full [&_svg]:w-full [&_svg]:top-0 [&_svg]:left-0">
                     <div className="relative [&_:first-child]:left-[-1px] lg:[&_:nth-child(2)]:top-[3px] [&_:nth-child(2)]:left-[-2px] lg:[&_:nth-child(2)]:left-[-1px] [&_:nth-child(3)]:left-[-4px] lg:[&_:nth-child(3)]:left-0 aspect-[45/32] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-full lg:h-auto [@media(max-width:1366px)]:h-full">
                         {svgLoadingScreen1}
                         {svgLoadingScreen2}
                         {svgLoadingScreen3}
                     </div>
                 </div>
-                <Menu ismobile={ismobile} />
+                <Menu ismobile={ismobile}/>
                 <div className={`home-main relative h-[100%] mx-[8px] mb-[14px] mb390:mb-[70px] lg:mb-[30px]`}>
                     <p className={
                         `static tracking-[0.3rem] text-[1.2rem] text-center pt-[10px]
