@@ -89,14 +89,14 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     return (
         <div className={`aboutme flex flex-col bg-black w-[100%] h-[100%] ${className? className : ""}`}>
             <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('aboutMeSection'))} ismobile={ismobile} />
-            <div className={`
+            <div className="
                 text-[1.2rem] flex flex-col absolute right-[12px] top-[76px]
-                [&_h1]:leading-[3rem] [&_h1]:text-end
+                [&_h1]:leading-[3rem] [&_h1]:text-left
                 mb390:text-[1.4rem] mb390:[&_h1]:leading-tight mb390:top-[92px]
                 sm:text-[1.8rem] sm:mr-[50px]
                 md:text-[1.9rem] md:top-[100px] md:right-[45px]
                 lg:top-[180px] lg:text-[2rem] lg:right-[60px]
-            `}>
+            ">
                 <button type="button" onClick={() => dispatch(toggleSection('skillsSection'))}>
                     <h1>{skillsSection[0]}</h1>
                 </button>
@@ -107,14 +107,14 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     <h1>{projectsSection[0]}</h1>
                 </button>
             </div>
-            <div className={`
+            <div className="
                 flex-grow flex flex-col justify-around leading-none
                 mb-[54px] text-[0.9rem] px-[2px]
                 mb390:px-[6px] mb390:text-[1.1rem]
                 sm:text-[1.4rem]
                 md:justify-evenly md:text-[1.5rem]
                 lg:text-[1.5rem] lg:ml-[80px] lg:mb-[20px]
-            `}>
+            ">
                 <p className={`
                     w-[50%] font-bold
                     lg:w-[500px]
@@ -169,10 +169,12 @@ const AboutMe = (props: props) => {
     const closeSection = () => {
         const contactElement = document.getElementById("aboutme")?.style;
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
+        if(contactElement) contactElement.transitionDuration = '0.5s';
     }
     const openSection = () => {
         const contactElement = document.getElementById("aboutme")?.style;
         if(contactElement) contactElement.bottom = '0px';
+        if(contactElement) contactElement.transitionDuration = '0.2s';
     }
 
     if(isOpenAboutSection){

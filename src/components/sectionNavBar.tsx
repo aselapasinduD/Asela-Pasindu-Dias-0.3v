@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Back from "./back";
 import Logo from "./logo";
@@ -8,15 +8,14 @@ import { useAppSelector } from "../states/hooks";
 interface props {
     title: string,
     handleBackButton: () => void,
-    ismobile?: boolean
+    ismobile?: boolean,
+    className?: string
 }
 
-const SectionNavBar = (props: props) => {
-    const { title, handleBackButton, ismobile } = props;
-
+const SectionNavBar: React.FC<props> = ({ title, handleBackButton, ismobile, className }) => {
     return(
         <div>
-            <Back handleBackButton={handleBackButton} ismobile={ismobile} />
+            <Back handleBackButton={handleBackButton} ismobile={ismobile} className={className} />
                 <nav className=" py-[8px] md:py-[12px]">
                     <div className="flex flex-col">
                         <Logo className=" self-end mr-[24px]" />

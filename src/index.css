@@ -47,9 +47,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: black;
-  /* padding-left: 60px;
-  padding-right: 60px; */
+  background: var(--primary-color);
 }
 
 .loadingscreen {
@@ -127,3 +125,10 @@ body {
   }
 } */
 
+
+@media screen and (max-width: 640px){
+  #skills .skill-card{
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}

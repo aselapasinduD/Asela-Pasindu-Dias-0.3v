@@ -53,13 +53,15 @@ const Contact = (props: props) => {
     const { ViewportSize } = props;
     const isOpenContactSection = useAppSelector((state) => state.section.contactSection);
 
-    const openContactSection = () => {
-        const contactElement = document.getElementById("contact")?.style;
-        if(contactElement) contactElement.top ="0";
-    }
     const closeContactSection = () => {
         const contactElement = document.getElementById("contact")?.style;
         if(contactElement) contactElement.top = `-${ViewportSize[1]}px`;
+        if(contactElement) contactElement.transitionDuration = "0.5s";
+    }
+    const openContactSection = () => {
+        const contactElement = document.getElementById("contact")?.style;
+        if(contactElement) contactElement.top ="0";
+        if(contactElement) contactElement.transitionDuration = "0.2s";
     }
     if(isOpenContactSection){
         openContactSection();

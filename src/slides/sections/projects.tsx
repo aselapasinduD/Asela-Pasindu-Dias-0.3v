@@ -54,10 +54,12 @@ const Projects = (props: props) => {
     const closeSection = () => {
         const contactElement = document.getElementById("projects")?.style;
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
+        if(contactElement) contactElement.transitionDuration = '0.5s';
     }
     const openSection = () => {
         const contactElement = document.getElementById("projects")?.style;
         if(contactElement) contactElement.bottom = '0px';
+        if(contactElement) contactElement.transitionDuration = '0.2s';
     }
 
     if(isOpenSection){

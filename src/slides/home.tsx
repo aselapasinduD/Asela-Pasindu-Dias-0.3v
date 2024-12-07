@@ -58,50 +58,6 @@ const HeadTopic = () => {
 
     const topics = ["Asela Pasindu Dias", "Full Stack Developer", "Code Programmer Developer"];
 
-    // useEffect(() => {
-    //     const listOfCharacters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]|\\:;\"'<>,.?/~`";
-    //     const topicsList = topics.map((topic) => topic.split(" "));
-
-    //     if(topicIndex >= topicsList.length){
-    //         setTopicIndex(0);
-    //         return;
-    //     }
-
-    //     const topic = topicsList[topicIndex];
-    //     const counterLimit = topic.reduce((max, word) => Math.max(max, word.length), 0);
-
-    //     if(counter >= counterLimit){
-    //         setTimeout(() => {
-    //             setCounter(0);
-    //             setTopicIndex((prevIndex) => prevIndex + 1);
-    //         }, 1000 * 2)
-    //         return;
-    //     }
-    //     const stringAnimation = setInterval(() => {
-    //         const updatedList = topic.map((word)=> {
-    //             const targetWord = word.padEnd(counterLimit, " ");
-    //             const randomChar = listOfCharacters[Math.floor(Math.random() * listOfCharacters.length)];
-
-    //             word = counter < word.length ? targetWord.slice(0, counter) + randomChar + " ".repeat(targetWord.length - counter - 1): targetWord;
-    //             return word;
-    //         });
-    //         setStringList(updatedList);
-    //     }, 60);
-    //     const charAnimate = setTimeout(() => {
-    //         const updatedStrings = topic.map((word) => {
-    //             const targetWord = word.padEnd(counterLimit, " ");
-    //             return targetWord.slice(0, counter + 1) + " ".repeat(counterLimit - counter - 1)
-    //         });
-    //         setStringList(updatedStrings);
-    //         setCounter((prevCounter) => prevCounter + 1);
-    //         clearInterval(stringAnimation);
-    //     }, 1000);
-    //     return () => {
-    //         clearInterval(stringAnimation);
-    //         clearTimeout(charAnimate);
-    //     };
-    // }, [counter, topicIndex]);
-
     useEffect(() => {
         helper.StringAnimation(0.6, topics, topicIndex, counter, setTopicIndex, setCounter, setStringList);
     }, [counter, topicIndex]);
@@ -125,8 +81,6 @@ const HeadTopic = () => {
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
-
-    console.log("Is Mobile: " + ismobile);
 
     // useEffect(() => {
     //     const loadingScreen = document.getElementById('loading-screen');
