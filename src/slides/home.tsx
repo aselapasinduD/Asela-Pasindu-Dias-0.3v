@@ -101,9 +101,18 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 return () => clearTimeout(Loaded);
             }
         }
+
+        const onContentLoaded = () => {
+            if (document.readyState === 'complete') {
+                afterLoad();
+            }
+        }
+
         window.addEventListener('load', afterLoad);
+        document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
             window.removeEventListener('load', afterLoad);
+            document.removeEventListener('DOMContentLoaded', onContentLoaded);
         }
     });
 
