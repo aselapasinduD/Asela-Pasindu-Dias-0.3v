@@ -52,6 +52,7 @@ body {
 
 .loadingscreen {
   --animation-play-time: 1s;
+  --animation-play-state: paused;
 }
 .loadingscreen .logo-icon-1 {
   animation: moveX1 var(--animation-play-time) ease-in-out infinite alternate;
@@ -62,9 +63,6 @@ body {
 .loadingscreen .logo-icon-3 {
   animation: moveX3 var(--animation-play-time) ease-in-out infinite alternate;
 }
-/* .loadscreen .stopanimate{
-  animation-play-state: paused;
-} */
 
 @keyframes moveX1 {
   from {
@@ -91,14 +89,17 @@ body {
   }
 }
 
-/* .loadingscreen #loading-screen-1 {
-  animation: loadingScreen1 var(--animation-play-time) ease-in-out 5s forwards;
+.loadingscreen #loading-screen-1 {
+  animation: loadingScreen1 var(--animation-play-time) ease-in-out forwards;
+  animation-play-state: var(--animation-play-state);
 }
 .loadingscreen #loading-screen-2 {
-  animation: loadingScreen2 var(--animation-play-time) ease-in-out 5s forwards;
+  animation: loadingScreen2 var(--animation-play-time) ease-in-out forwards;
+  animation-play-state: var(--animation-play-state);
 }
 .loadingscreen #loading-screen-3 {
-  animation: loadingScreen3 var(--animation-play-time) ease-in-out 5s forwards;
+  animation: loadingScreen3 var(--animation-play-time) ease-in-out forwards;
+  animation-play-state: var(--animation-play-state);
 }
 @keyframes loadingScreen1 {
   from {
@@ -123,12 +124,37 @@ body {
   to {
     transform: translateX(100%);
   }
-} */
-
+}
 
 @media screen and (max-width: 640px){
   #skills .skill-card{
     grid-column: span 1 !important;
     grid-row: span 1 !important;
   }
+}
+
+#educations .programmingLanguageList div{
+  animation: autoSlider 12s linear infinite;
+  animation-delay: calc((12s/2) * (var(--item-position) - 1));
+}
+@keyframes autoSlider{
+  from{
+    left: 100%;
+  }
+  to{
+    left: -120%;
+  }
+}
+
+.project-list .project-card .project-card-top .project-card-inside{
+  transition: transform 0.5s ease-in-out;
+}
+.project-list .project-card .project-card-top:hover .project-card-inside{
+  transform: translateX(-50%) translateY(-50%);
+}
+.project-list .project-card .project-card-top .project-card-image{
+  transition: transform 0.5s ease-in-out;
+}
+.project-list .project-card .project-card-top:hover .project-card-image{
+  transform: scale(1.1);
 }

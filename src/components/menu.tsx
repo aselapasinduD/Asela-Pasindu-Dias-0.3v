@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Helper from "../helper/helper";
 
-import { useAppDispatch } from "../states/hooks";
+import { useAppDispatch, useAppSelector } from "../states/hooks";
 import { toggleSection } from "../states/sectionSlice";
 
 interface props {
@@ -11,6 +11,7 @@ interface props {
 const Menu = (props: props) => {
     const {ismobile} = props;
     const helper = new Helper();
+    const isWebsiteLoaded = useAppSelector((state) => state.section.isWebsiteLoaded);
     const dispatch = useAppDispatch();
 
     const [menu1, setMenu1] = useState<string[]>([]);
@@ -28,14 +29,14 @@ const Menu = (props: props) => {
     const menuList = ["ABOUT ME", "Innenta Solutions", "MY BLOG"];
 
     useEffect(() => {
-        helper.StringAnimation(0.5, menuList[0], menu1Index, counterMenu1, setMenu1Index, setCounterMenu1, setMenu1, true, false);
-    }, [counterMenu1, menu1Index]);
+        if(isWebsiteLoaded) helper.StringAnimation(0.5, menuList[0], menu1Index, counterMenu1, setMenu1Index, setCounterMenu1, setMenu1, true, false);
+    }, [counterMenu1, menu1Index, isWebsiteLoaded]);
     useEffect(() => {
-        helper.StringAnimation(0.2, menuList[1], menu2Index, counterMenu2, setMenu2Index, setCounterMenu2, setMenu2, true, false);
-    }, [counterMenu2, menu2Index]);
+        if(isWebsiteLoaded) helper.StringAnimation(0.2, menuList[1], menu2Index, counterMenu2, setMenu2Index, setCounterMenu2, setMenu2, true, false);
+    }, [counterMenu2, menu2Index, isWebsiteLoaded]);
     useEffect(() => {
-        helper.StringAnimation(0.5, menuList[2], menu3Index, counterMenu3, setMenu3Index, setCounterMenu3, setMenu3, true, false);
-    }, [counterMenu3, menu3Index]);
+        if(isWebsiteLoaded) helper.StringAnimation(0.5, menuList[2], menu3Index, counterMenu3, setMenu3Index, setCounterMenu3, setMenu3, true, false);
+    }, [counterMenu3, menu3Index, isWebsiteLoaded]);
 
     function handleMouseEnterMenu1(){
         if(menu1[0] === menuList[0]){

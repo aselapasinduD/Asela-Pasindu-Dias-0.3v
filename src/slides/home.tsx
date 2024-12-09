@@ -9,6 +9,8 @@ import Menu from "../components/menu";
 import Helper from "../helper/helper";
 import Slide from "../components/slide";
 import Logo from "../components/logo";
+import { useAppDispatch, useAppSelector } from "../states/hooks";
+import { openSection } from "../states/sectionSlice";
 
 const iconColor = "#ffffff";
 
@@ -54,13 +56,16 @@ const HeadTopic = () => {
     const [stringList, setStringList] = useState<string[]>([]);
     const [counter, setCounter] = useState<number>(0);
     const [topicIndex, setTopicIndex] = useState<number>(0);
+    const isWebsiteLoaded = useAppSelector((state) => state.section.isWebsiteLoaded);
     const helper = new Helper();
 
     const topics = ["Asela Pasindu Dias", "Full Stack Developer", "Code Programmer Developer"];
 
     useEffect(() => {
-        helper.StringAnimation(0.6, topics, topicIndex, counter, setTopicIndex, setCounter, setStringList);
-    }, [counter, topicIndex]);
+        if(isWebsiteLoaded){
+            helper.StringAnimation(0.6, topics, topicIndex, counter, setTopicIndex, setCounter, setStringList);
+        }
+    }, [counter, topicIndex, isWebsiteLoaded]);
 
     return(
         <div className="leading-[5em]">
@@ -81,18 +86,26 @@ const HeadTopic = () => {
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
+    const dispatch = useAppDispatch();
 
-    // useEffect(() => {
-    //     const loadingScreen = document.getElementById('loading-screen');
-    //     if(loadingScreen){
-    //         const Loaded = setTimeout(() => {
-    //             loadingScreen.style.display = 'none';
-    //             loadingScreen.remove();
-    //         }, 1000 * 6);
-
-    //         return () => clearTimeout(Loaded);
-    //     }
-    // });
+    useEffect(() => {
+        const afterLoad = () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if(loadingScreen){
+                loadingScreen.style.setProperty('--animation-play-state', 'running');
+                const Loaded = setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    loadingScreen.remove();
+                }, 1000 * 1);
+                dispatch(openSection('isWebsiteLoaded'));
+                return () => clearTimeout(Loaded);
+            }
+        }
+        window.addEventListener('load', afterLoad);
+        return () => {
+            window.removeEventListener('load', afterLoad);
+        }
+    });
 
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
@@ -111,7 +124,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 <Logo />
             </nav>
             <div className="flex relative flex-col flex-1 border-[3px] border-orange rounded-[20px] overflow-hidden">
-                <div id="loading-screen" className="loadingscreen hidden absolute w-full h-full z-10 [&_svg]:absolute [&_svg]:h-full [&_svg]:w-full [&_svg]:top-0 [&_svg]:left-0">
+                <div id="loading-screen" className="loadingscreen absolute w-full h-full z-10 [&_svg]:absolute [&_svg]:h-full [&_svg]:w-full [&_svg]:top-0 [&_svg]:left-0">
                     <div className="relative [&_:first-child]:left-[-1px] lg:[&_:nth-child(2)]:top-[3px] [&_:nth-child(2)]:left-[-2px] lg:[&_:nth-child(2)]:left-[-1px] [&_:nth-child(3)]:left-[-4px] lg:[&_:nth-child(3)]:left-0 aspect-[45/32] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-full lg:h-auto [@media(max-width:1366px)]:h-full">
                         {svgLoadingScreen1}
                         {svgLoadingScreen2}

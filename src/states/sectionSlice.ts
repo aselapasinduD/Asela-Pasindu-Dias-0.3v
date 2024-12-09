@@ -9,7 +9,8 @@ const initialState: SectionState = {
     skillsSection: false,
     educationsSection: false,
     projectsSection: false,
-    contactSection: false
+    contactSection: false,
+    isWebsiteLoaded: false,
 }
 
 const sectionSlice = createSlice({

@@ -16,11 +16,50 @@ interface ismobile {
 }
 type childrenProps = props & ismobile;
 
+const educations = [
+    {
+        title: "UOM Open Learning - Full Stack Development",
+        courseList: [
+            {
+                name: "Python-1"
+            },
+            {
+                name: "Python-2"
+            },
+            {
+                name: "Web Development-1"
+            },
+            {
+                name: "Web Development-2"
+            },
+            {
+                name: "Web Development-3"
+            }
+        ]
+    },
+    {
+        title: "FreeCodeCamp",
+        courseList: [
+            {
+                name: "Responsive Web Design"
+            },
+            {
+                name: "JavaScript Algorithms and Data Structures"
+            },
+            {
+                name: "Scientific Computing With Python"
+            },
+            {
+                name: "Foundational C# With Microsoft"
+            }
+        ]
+    }
+]
+
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {className, ismobile} = childrenProps;
-    const dispatch = useAppDispatch();
-
     const isOpenEducationsSection = useAppSelector((state) => state.section.educationsSection);
+    const dispatch = useAppDispatch();
 
     const title = "EDUCATIONS";
 
@@ -38,10 +77,42 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
     }, [counter, titleIndex, isOpenEducationsSection]);
 
+    const programmingLanguageList = ['C#', 'C++', 'PHP', 'PYTHON', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'JAVA'];
+
+    const programmingLanguageListStyle = {"--width": '300px', "--height": '72px', "--quantity": programmingLanguageList.length} as React.CSSProperties;
+    const programmingLanguageList1 = {"--item-position": 1} as React.CSSProperties;
+    const programmingLanguageList2 = {"--item-position": 2} as React.CSSProperties;
+
+
     return(
-        <div className="bg-black w-[100%] h-[100%]">
+        <div className="bg-black w-[100%] h-[100%] overflow-hidden">
             <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('educationsSection'))} ismobile={ismobile} />
-            <h1 className="text-center">Under Construction</h1>
+            <div className="bg-[#d9d9d920] w-full h-full">
+                <div className="programmingLanguageList relative w-9/12 flex h-[--height] m-auto overflow-hidden" style={programmingLanguageListStyle}>
+                    <div className="absolute flex gap-5 h-[--height] left-[100%]" style={programmingLanguageList1}>
+                        {programmingLanguageList.map((programmingLanguage, index) => {
+                            return <h1 key={index} id={`programmingLanguageListItem-${index}`} className="text-[3rem] text-center text-[var(--secondary-color)]">{programmingLanguage}</h1>
+                        })}
+                    </div>
+                    <div className="absolute hidden md:flex gap-5 h-[--height] left-[100%]" style={programmingLanguageList2}>
+                        {programmingLanguageList.map((programmingLanguage, index) => {
+                            return <h1 key={index} id={`programmingLanguageListItem-${index}`} className="text-[3rem] text-center text-[var(--secondary-color)]">{programmingLanguage}</h1>
+                        })}
+                    </div>
+                </div>
+                <div className="w-9/12 m-auto">
+                    {educations.map((education, index) => 
+                        <div key={index}>
+                            <h4 className="text-center text-600 text-[1.8rem]">{education.title}</h4>
+                            <div className="flex gap-5 justify-center">
+                                {education.courseList.map((course, index) =>
+                                    <p key={index} className="w-[200px] text-center text-[1.15rem]">{course.name}</p>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
@@ -59,7 +130,6 @@ const Educations = (props: props) => {
         const contactElement = document.getElementById("educations")?.style;
         if(contactElement) contactElement.bottom = '0px';
         if(contactElement) contactElement.transitionDuration = '0.2s';
-
     }
 
     if(isOpenSection){
