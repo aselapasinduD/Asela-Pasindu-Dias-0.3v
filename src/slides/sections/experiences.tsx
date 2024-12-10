@@ -58,10 +58,10 @@ const educations = [
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {className, ismobile} = childrenProps;
-    const isOpenEducationsSection = useAppSelector((state) => state.section.educationsSection);
+    const isOpenEducationsSection = useAppSelector((state) => state.section.experiencesSection);
     const dispatch = useAppDispatch();
 
-    const title = "EDUCATIONS";
+    const title = "EXPERIENCES";
 
     const [titleAnimate, setTitleAnimate] = useState<string[]>([]);
     const [counter, setCounter] = useState<number>(0);
@@ -86,7 +86,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     return(
         <div className="bg-black w-[100%] h-[100%] overflow-hidden">
-            <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('educationsSection'))} ismobile={ismobile} />
+            <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('experiencesSection'))} ismobile={ismobile} />
             <div className="bg-[#d9d9d920] w-full h-full">
                 <div className="programmingLanguageList relative w-9/12 flex h-[--height] m-auto overflow-hidden" style={programmingLanguageListStyle}>
                     <div className="absolute flex gap-5 h-[--height] left-[100%]" style={programmingLanguageList1}>
@@ -117,17 +117,17 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     );
 }
 
-const Educations = (props: props) => {
+const Experiences = (props: props) => {
     const {ViewportSize} = props;
-    const isOpenSection = useAppSelector((state) => state.section.educationsSection);
+    const isOpenSection = useAppSelector((state) => state.section.experiencesSection);
     
     const closeSection = () => {
-        const contactElement = document.getElementById("educations")?.style;
+        const contactElement = document.getElementById("experiences")?.style;
         if(contactElement) contactElement.bottom = `-${ViewportSize[1]}px`;
         if(contactElement) contactElement.transitionDuration = '0.5s';
     }
     const openSection = () => {
-        const contactElement = document.getElementById("educations")?.style;
+        const contactElement = document.getElementById("experiences")?.style;
         if(contactElement) contactElement.bottom = '0px';
         if(contactElement) contactElement.transitionDuration = '0.2s';
     }
@@ -139,10 +139,10 @@ const Educations = (props: props) => {
     }
 
     return(
-        <Slide id="educations" className={`translate-x-[-4px] sm:translate-x-[-12px] xl:translate-x-[-50px]`}>
+        <Slide id="experiences" className={`translate-x-[-4px] sm:translate-x-[-12px] xl:translate-x-[-50px]`}>
             <ChildrenWithProps {...props} />
         </Slide>
     );
 }
 
-export default Educations;
+export default Experiences;

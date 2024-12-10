@@ -11,6 +11,7 @@ interface props {
 
 const ContactButtons = (props: props) => {
     const {ismobile, ViewportSize, className} = props;
+    const isWebsiteLoaded = useAppSelector((state) => state.section.isWebsiteLoaded);
     const dispatch = useAppDispatch();
     const helper = new Helper();
 
@@ -25,12 +26,12 @@ const ContactButtons = (props: props) => {
     const [contactButtonIndex, setContactButtonIndex] = useState<number>(0);
 
     useEffect(() => {
-        helper.StringAnimation(0.3, buttons[0], mailButtonIndex, counterMailButton, setMailButtonIndex, setCounterMailButton, setMailButton, true, false);
-    }, [counterMailButton, mailButtonIndex]);
+        if(isWebsiteLoaded) helper.StringAnimation(0.3, buttons[0], mailButtonIndex, counterMailButton, setMailButtonIndex, setCounterMailButton, setMailButton, true, false);
+    }, [counterMailButton, mailButtonIndex, isWebsiteLoaded]);
 
     useEffect(() => {
-        helper.StringAnimation(0.3, buttons[1], contactButtonIndex, counterContactButton, setContactButtonIndex, setCounterContactButton, setContactButton, true, false);
-    }, [counterContactButton, contactButtonIndex]);
+        if(isWebsiteLoaded) helper.StringAnimation(0.3, buttons[1], contactButtonIndex, counterContactButton, setContactButtonIndex, setCounterContactButton, setContactButton, true, false);
+    }, [counterContactButton, contactButtonIndex, isWebsiteLoaded]);
 
     
     function handleMouseEnterMailButton(){

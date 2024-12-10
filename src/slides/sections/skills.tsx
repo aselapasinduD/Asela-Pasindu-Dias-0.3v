@@ -88,7 +88,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
     return(
         <div className={`bg-black w-[100%] h-[100%] overflow-y-scroll sm:overflow-hidden ${className? className : "" }`}>
-            <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('skillsSection'))} ismobile={ismobile} className='z-10' />
+            <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('skillsSection'))} ismobile={ismobile} classNameForBackButton='z-10' />
             <div className="px-6 sm:px-0 grid grid-cols-[repeat(1,1fr)] sm:grid-cols-[repeat(3,1fr)] lg:grid-cols-[repeat(4,1fr)] grid-rows-[repeat(6,186px)] sm:grid-rows-[repeat(3,186px)] lg:grid-rows-[repeat(2,186px)] gap-x-4 lg:gap-x-6">
                 {SkillList.map((skill, index) =>
                         <div key={index} className="skill-card h-full" style={{gridColumn: "span " + skill.spanSizeCol, gridRow: "span " + skill.spanSizeRow}}>

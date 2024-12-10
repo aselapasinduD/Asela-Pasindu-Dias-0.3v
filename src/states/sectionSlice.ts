@@ -7,7 +7,7 @@ interface SectionState{
 const initialState: SectionState = {
     aboutMeSection: false,
     skillsSection: false,
-    educationsSection: false,
+    experiencesSection: false,
     projectsSection: false,
     contactSection: false,
     isWebsiteLoaded: false,

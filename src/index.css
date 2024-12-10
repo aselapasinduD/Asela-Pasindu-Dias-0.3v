@@ -133,7 +133,7 @@ body {
   }
 }
 
-#educations .programmingLanguageList div{
+#experiences .programmingLanguageList div{
   animation: autoSlider 12s linear infinite;
   animation-delay: calc((12s/2) * (var(--item-position) - 1));
 }
@@ -157,4 +157,25 @@ body {
 }
 .project-list .project-card .project-card-top:hover .project-card-image{
   transform: scale(1.1);
+}
+
+/* width */
+::-webkit-scrollbar-track
+{
+	border: 1px solid var(--primary-color);
+	background-color: #2b2b2b;
+  border-radius: 99px;
+}
+/* Track */
+::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: #2b2b2b;
+  border-radius: 99px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb
+{
+	background-color: var(--secondary-color);
+	border-radius: 99px;
 }

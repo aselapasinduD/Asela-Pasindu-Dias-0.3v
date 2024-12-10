@@ -2,7 +2,7 @@ import Slide from "../components/slide";
 import SectionNavBar from "../components/sectionNavBar";
 import ContactButtons from "../components/contactButtons";
 
-import Educations from "./sections/educations";
+import Experiences from "./sections/experiences";
 import Projects from "./sections/projects";
 import Skills from "./sections/skills";
 
@@ -25,7 +25,7 @@ interface ismobile {
 
 type childrenProps = props & ismobile;
 
-type SectionKeys = 'skills' | 'educations' | 'projects';
+type SectionKeys = 'skills' | 'experiences' | 'projects';
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
@@ -37,9 +37,9 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     const [counterSkillsSection, setCounterSkillsSection] = useState<number>(0);
     const [skillsSectionIndex, setSkillsSectionIndex] = useState<number>(0);
 
-    const [educationsSection, setEducationsSection] = useState<string[]>([]);
-    const [counterEducationsSection, setCounterEducationsSection] = useState<number>(0);
-    const [educationsSectionIndex, setEducationsSectionIndex] = useState<number>(0);
+    const [experiencesSection, setExperiencesSection] = useState<string[]>([]);
+    const [counterExperiencesSection, setCounterExperiencesSection] = useState<number>(0);
+    const [experiencesSectionIndex, setExperiencesSectionIndex] = useState<number>(0);
 
     const [projectsSection, setProjectsSection] = useState<string[]>([]);
     const [counterProjectsSection, setCounterProjectsSection] = useState<number>(0);
@@ -49,7 +49,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     const [counterTitle, setCounterTitle] = useState<number>(0);
     const [titleIndex, setTitleIndex] = useState<number>(0);
 
-    const sectionList = ["SKILLS", "EDUCATIONS", "PROJECTS"];
+    const sectionList = ["SKILLS", "EXPERIENCES", "PROJECTS"];
 
     const title = "WHO AM I";
 
@@ -63,12 +63,12 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
     }, [counterSkillsSection, skillsSectionIndex, isOpenAboutSection]);
     useEffect(() => {
         if(isOpenAboutSection){
-            helper.StringAnimation(0.3, sectionList[1], educationsSectionIndex, counterEducationsSection, setEducationsSectionIndex, setCounterEducationsSection, setEducationsSection, true, false)
+            helper.StringAnimation(0.3, sectionList[1], experiencesSectionIndex, counterExperiencesSection, setExperiencesSectionIndex, setCounterExperiencesSection, setExperiencesSection, true, false)
         } else {
-            setCounterEducationsSection(0);
-            setEducationsSectionIndex(0);
+            setCounterExperiencesSection(0);
+            setExperiencesSectionIndex(0);
         };
-    }, [counterEducationsSection, educationsSectionIndex, isOpenAboutSection]);
+    }, [counterExperiencesSection, experiencesSectionIndex, isOpenAboutSection]);
     useEffect(() => {
         if(isOpenAboutSection){
             helper.StringAnimation(0.4, sectionList[2], projectsSectionIndex, counterProjectsSection, setProjectsSectionIndex, setCounterProjectsSection, setProjectsSection, true, false)
@@ -100,8 +100,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 <button type="button" onClick={() => dispatch(toggleSection('skillsSection'))}>
                     <h1>{skillsSection[0]}</h1>
                 </button>
-                <button type="button" onClick={() => dispatch(toggleSection('educationsSection'))}>
-                    <h1>{educationsSection[0]}</h1>
+                <button type="button" onClick={() => dispatch(toggleSection('experiencesSection'))}>
+                    <h1>{experiencesSection[0]}</h1>
                 </button>
                 <button type="button" onClick={() => dispatch(toggleSection('projectsSection'))}>
                     <h1>{projectsSection[0]}</h1>
@@ -156,7 +156,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             </div>
             <ContactButtons ismobile={ismobile} ViewportSize={ViewportSize} className="z-[9999]" />
             <Skills ViewportSize={ViewportSize} ismobile={ismobile} />
-            <Educations ViewportSize={ViewportSize} ismobile={ismobile} />
+            <Experiences ViewportSize={ViewportSize} ismobile={ismobile} />
             <Projects ViewportSize={ViewportSize} ismobile={ismobile} />
         </div>
     );
