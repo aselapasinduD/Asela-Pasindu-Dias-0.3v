@@ -68,7 +68,7 @@ const Menu = (props: props) => {
             xl:mr-[12%]
         `}>
             <button className="w-[60px] md:w-[100px] text-left" onClick={() => dispatch(toggleSection('aboutMeSection'))} onMouseEnter={handleMouseEnterMenu1}>{menu1[0]}</button>
-            <a className="w-[120px] md:w-[200px]" href="https://innentasolutions.com" onMouseEnter={handleMouseEnterMenu2}>{menu2[0]}</a>
+            <a className="w-[120px] md:w-[200px]" href="https://innentasolutions.com" onMouseEnter={handleMouseEnterMenu2} target="_blank">{menu2[0]}</a>
             <a className="w-[60px] md:w-[100px]" href="#" onMouseEnter={handleMouseEnterMenu3}>{menu3[0]}</a>
         </div>
     );

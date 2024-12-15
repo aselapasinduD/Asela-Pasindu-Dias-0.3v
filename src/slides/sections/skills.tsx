@@ -7,6 +7,12 @@ import { useEffect, useState } from "react";
 import Helper from "../../helper/helper";
 
 import skillImageHolder from "../../assests/skill-image-holder.png";
+import problemSolving from "../../assests/skill_images/problem_solving.jpg";
+import researchAndDevelopment from "../../assests/skill_images/research_and_development.jpg";
+import designing from "../../assests/skill_images/designing.jpg";
+import solutionArchitecture from "../../assests/skill_images/solution_architecture_diagram.jpg";
+import fullStackDevelopment from "../../assests/skill_images/full_stack_development_diagram.jpg";
+import communication from "../../assests/skill_images/communication.jpg";
 
 interface props {
     ViewportSize: number[],
@@ -24,42 +30,42 @@ const SkillList = [
         details: 'Skill Details',
         spanSizeCol: 1,
         spanSizeRow: 1,
-        imageURL: ""
+        imageURL: problemSolving
     },
     {
-        name: 'Research and Development (R&D)',
+        name: 'Research & Development',
         details: 'Skill Details',
         spanSizeCol: 2,
         spanSizeRow: 1,
-        imageURL: ""
+        imageURL: researchAndDevelopment
     },
     {
-        name: 'Designing',
+        name: 'Design & Planning',
         details: 'Skill Details',
         spanSizeCol: 1,
         spanSizeRow: 2,
-        imageURL: ""
+        imageURL: designing
     },
     {
         name: 'Solution Architecture',
         details: 'Skill Details',
         spanSizeCol: 1,
         spanSizeRow: 1,
-        imageURL: ""
+        imageURL: solutionArchitecture
     },
     {
         name: 'Full-Stack Development',
         details: 'Skill Details',
         spanSizeCol: 1,
         spanSizeRow: 1,
-        imageURL: ""
+        imageURL: fullStackDevelopment
     },
     {
         name: 'Communication',
         details: 'Skill Details',
         spanSizeCol: 1,
         spanSizeRow: 1,
-        imageURL: ""
+        imageURL: communication
     },
 ]
 
