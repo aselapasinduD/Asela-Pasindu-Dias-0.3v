@@ -100,7 +100,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                         <div key={index} className="skill-card h-full" style={{gridColumn: "span " + skill.spanSizeCol, gridRow: "span " + skill.spanSizeRow}}>
                             <div className="relative h-[calc(100%-1.5rem)] overflow-hidden [&>div]:hover:left-0">
                                 <img src={`${skill.imageURL !== ""? skill.imageURL : skillImageHolder}`} className="w-full h-full object-cover" alt="Skill Image" />
-                                <div className="absolute h-full w-full p-2 top-0 bg-[#27272a80] -left-[100%] transition-all easy-in-out duration-500">
+                                <div className="absolute h-full w-full p-2 top-0 bg-[#27272aba] -left-[100%] transition-all easy-in-out duration-500">
                                     <p>{skill.details}</p>
                                 </div>
                             </div>
