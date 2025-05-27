@@ -127,7 +127,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
     },[checkIsReadyState, isLoadScreenShowing]);
 
-    console.log(document.readyState)
+    // console.log(document.readyState)
 
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
