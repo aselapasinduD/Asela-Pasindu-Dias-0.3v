@@ -127,6 +127,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
     },[checkIsReadyState, isLoadScreenShowing]);
 
+    console.log(document.readyState)
+
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
             <nav className={`flex w-[100%] items-center py-[8px] px-[24px] md:py-[12px] md:px-[28px]`}>
