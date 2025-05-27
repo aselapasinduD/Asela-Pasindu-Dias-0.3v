@@ -116,10 +116,10 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             onContentLoaded();
         }, 500) : () => {};
 
-        // window.addEventListener('load', afterLoad);
+        window.addEventListener('load', afterLoad);
         // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
-            // window.removeEventListener('load', afterLoad);
+            window.removeEventListener('load', afterLoad);
             // document.removeEventListener('DOMContentLoaded', onContentLoaded);
             if (typeof interval === "number") {
                 clearInterval(interval);
