@@ -106,27 +106,25 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
 
         const onContentLoaded = () => {
-            // if (document.readyState === 'complete') {
-                
-            // }
             if (document.readyState === 'interactive') {
                 afterLoad();
             }
         }
 
-        // const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
-        //     setCheckIsReadyState(!checkIsReadyState);
-        //     onContentLoaded();
-        // }, 500) : () => {};
+        console.log(isLoadScreenShowing);
+        const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
+            setCheckIsReadyState(!checkIsReadyState);
+            afterLoad();
+        }, 500) : () => {};
 
-        window.addEventListener('load', afterLoad);
+        // window.addEventListener('load', afterLoad);
         // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
-            window.removeEventListener('load', afterLoad);
+            // window.removeEventListener('load', afterLoad);
             // document.removeEventListener('DOMContentLoaded', onContentLoaded);
-            // if (typeof interval === "number") {
-            //     clearInterval(interval);
-            // }
+            if (typeof interval === "number") {
+                clearInterval(interval);
+            }
         }
     },[checkIsReadyState, isLoadScreenShowing]);
 
