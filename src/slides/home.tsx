@@ -86,6 +86,8 @@ const HeadTopic = () => {
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
+    const [isLoadScreenShowing, setIsLoadScreenShowing] = useState<boolean>(true);
+    const [checkIsReadyState, setCheckIsReadyState] = useState<boolean>(false)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -98,6 +100,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     loadingScreen.remove();
                 }, 1000 * 1);
                 dispatch(openSection('isWebsiteLoaded'));
+                setIsLoadScreenShowing(false)
                 return () => clearTimeout(Loaded);
             }
         }
@@ -111,26 +114,23 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             }
         }
 
-     
-
-        console.log(document.readyState)
+        const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
+            setCheckIsReadyState(!checkIsReadyState);
+            onContentLoaded();
+        }, 500) : () => {};
 
         window.addEventListener('load', afterLoad);
         // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
             window.removeEventListener('load', afterLoad);
             // document.removeEventListener('DOMContentLoaded', onContentLoaded);
+            if (typeof interval === "number") {
+                clearInterval(interval);
+            }
         }
-    }, []);
+    },[checkIsReadyState, isLoadScreenShowing]);
 
-
-    // useEffect(() => {
-    //     let status = ""
-    //     while(document.readyState !== 'complete'){
-    //         console.log(document.readyState)
-    //         status = document.readyState
-    //     }
-    // })
+    // console.log(document.readyState)
 
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
