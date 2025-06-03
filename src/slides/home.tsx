@@ -103,18 +103,34 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
 
         const onContentLoaded = () => {
-            if (document.readyState === 'complete') {
+            // if (document.readyState === 'complete') {
+                
+            // }
+            if (document.readyState === 'interactive') {
                 afterLoad();
             }
         }
 
+     
+
+        console.log(document.readyState)
+
         window.addEventListener('load', afterLoad);
-        document.addEventListener('DOMContentLoaded', onContentLoaded);
+        // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
             window.removeEventListener('load', afterLoad);
-            document.removeEventListener('DOMContentLoaded', onContentLoaded);
+            // document.removeEventListener('DOMContentLoaded', onContentLoaded);
         }
-    });
+    }, []);
+
+
+    // useEffect(() => {
+    //     let status = ""
+    //     while(document.readyState !== 'complete'){
+    //         console.log(document.readyState)
+    //         status = document.readyState
+    //     }
+    // })
 
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>

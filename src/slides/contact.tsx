@@ -42,9 +42,14 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
 
 
     return (
-        <div className={`contact ${className? className: ""} bg-orange w-[100%] h-[100%]`}>
+        <div className={`contact ${className? className: ""} bg-black w-[100%] h-[100%]`}>
             <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('contactSection'))} ismobile={ismobile} />
-            <h1 className=" text-center ">Under Construction</h1>
+            <form className="w-max m-auto">
+                <div className="">
+                    <input id="frist-name" type="text" name="first-name" placeholder="First Name" />
+                    <input id="frist-name" type="text" name="first-name" placeholder="First Name" />
+                </div>
+            </form>
         </div>
     );
 }

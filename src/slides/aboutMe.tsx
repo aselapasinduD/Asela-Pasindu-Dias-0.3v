@@ -119,13 +119,13 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     w-[50%] font-bold
                     lg:w-[500px]
                 `}>
-                    Hello. I'm Asela Pasindu Dias. I'm a multi-talented person who has over 4+ years of experience in a variety of design disciplines, coding, and research fields.
+                    Hello. I'm Asela Pasindu Dias. I am genuinely passionate about full-stack development and am dedicated to improving my skills through both university education and self-study.
                 </p>
                 <p className={`
                     font-light
                     lg:w-[500px] lg:ml-[100px]
                 `}>
-                    Additionally, I'm Doing UI/UX design, software development, and full-stack web development, Three.JS development, C# development. I'm also interested in varieties of programming languages and the concept of disciplines in programming.
+                    While I am still learning, I have gained industry-level experience with a range of programming languages and frameworks. I prefer problem-solving, research, and continual progress, and I am always eager to take on new challenges and improve my skills.
                 </p>
                 <p className={`
                     font-light

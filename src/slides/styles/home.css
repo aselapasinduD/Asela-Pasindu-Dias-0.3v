@@ -10,6 +10,7 @@
     background-size: contain;
     background-position: left bottom;
 }
+
 .home-main::after {
     content: "";
     position: absolute;
@@ -29,23 +30,27 @@
         background-size: 500px;
     }
 }
+
 @media screen and (min-width: 400px) {
     .home-main::after {
         left: 30px;
         background-size: 540px;
     }
 }
+
 @media screen and (min-width: 640px) {
     .home-main::after {
         left: 10px;
         background-size: 620px;
     }
 }
+
 @media screen and (min-width: 768px) {
     .home-main::after {
         left: 0px;
         background-size: 620px;
     }
+
     .home-main::before {
         background-size: 720px;
     }
@@ -56,6 +61,7 @@
         height: 101%;
         background-size: 640px;
     }
+
     .home-main::before {
         background-size: 760px;
     }
@@ -65,6 +71,7 @@
     .home-main::after {
         background-size: 640px;
     }
+
     .home-main::before {
         background-size: contain;
     }
