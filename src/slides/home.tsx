@@ -114,21 +114,37 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             }
         }
 
-        const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
-            setCheckIsReadyState(!checkIsReadyState);
-            onContentLoaded();
-        }, 500) : () => {};
+        // const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
+        //     setCheckIsReadyState(!checkIsReadyState);
+        //     onContentLoaded();
+        // }, 500) : () => {};
 
         window.addEventListener('load', afterLoad);
         // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
             window.removeEventListener('load', afterLoad);
             // document.removeEventListener('DOMContentLoaded', onContentLoaded);
-            if (typeof interval === "number") {
-                clearInterval(interval);
-            }
+            // if (typeof interval === "number") {
+            //     clearInterval(interval);
+            // }
         }
     },[checkIsReadyState, isLoadScreenShowing]);
+
+    if ('load' in window.Event) {
+        console.log("The 'load' event is supported!");
+    } else {
+        console.log("The 'load' event is NOT supported!");
+    }
+
+    if ('onload' in window) {
+        console.log("The 'onload' event is supported!");
+    } else {
+        console.log("The 'onload' event is NOT supported!");
+    }
+
+    window.addEventListener("load", function() {
+        console.log("The 'load' event fired successfully!");
+    });
 
     // console.log(document.readyState)
 
