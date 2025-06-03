@@ -86,8 +86,8 @@ const HeadTopic = () => {
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
-    const [isLoadScreenShowing, setIsLoadScreenShowing] = useState<boolean>(true);
-    const [checkIsReadyState, setCheckIsReadyState] = useState<boolean>(false)
+    // const [isLoadScreenShowing, setIsLoadScreenShowing] = useState<boolean>(true);
+    // const [checkIsReadyState, setCheckIsReadyState] = useState<boolean>(false)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -100,7 +100,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     loadingScreen.remove();
                 }, 1000 * 1);
                 dispatch(openSection('isWebsiteLoaded'));
-                setIsLoadScreenShowing(false)
+                // setIsLoadScreenShowing(false)
                 return () => clearTimeout(Loaded);
             }
         }
@@ -122,37 +122,15 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         } else {
             afterLoad();
         }
-        // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
             if(document.readyState !== 'complete'){
                 window.removeEventListener('load', afterLoad);
             }
-            // document.removeEventListener('DOMContentLoaded', onContentLoaded);
             // if (typeof interval === "number") {
             //     clearInterval(interval);
             // }
         }
-    },[checkIsReadyState, isLoadScreenShowing]);
-
-    console.log(document.readyState);
-
-    if ('load' in window.Event) {
-        console.log("The 'load' event is supported!");
-    } else {
-        console.log("The 'load' event is NOT supported!");
-    }
-
-    if ('onload' in window) {
-        console.log("The 'onload' event is supported!");
-    } else {
-        console.log("The 'onload' event is NOT supported!");
-    }
-
-    window.addEventListener("load", function() {
-        console.log("The 'load' event fired successfully!");
-    });
-
-    // console.log(document.readyState)
+    },[]);
 
     return (
         <div className={`home bg-black flex flex-col w-[100%] h-[100%] ${className? className : ""}`}>
