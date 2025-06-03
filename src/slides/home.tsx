@@ -111,22 +111,30 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
             }
         }
 
-        console.log(isLoadScreenShowing);
-        const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
-            setCheckIsReadyState(!checkIsReadyState);
-            afterLoad();
-        }, 500) : () => {};
+        // console.log(isLoadScreenShowing);
+        // const interval = (document.readyState === 'interactive' || isLoadScreenShowing) ? setInterval(() => {
+        //     setCheckIsReadyState(!checkIsReadyState);
+        //     afterLoad();
+        // }, 500) : () => {};
 
-        // window.addEventListener('load', afterLoad);
+        if(document.readyState !== 'complete'){
+            window.addEventListener('load', afterLoad);
+        } else {
+            afterLoad();
+        }
         // document.addEventListener('DOMContentLoaded', onContentLoaded);
         return () => {
-            // window.removeEventListener('load', afterLoad);
-            // document.removeEventListener('DOMContentLoaded', onContentLoaded);
-            if (typeof interval === "number") {
-                clearInterval(interval);
+            if(document.readyState !== 'complete'){
+                window.removeEventListener('load', afterLoad);
             }
+            // document.removeEventListener('DOMContentLoaded', onContentLoaded);
+            // if (typeof interval === "number") {
+            //     clearInterval(interval);
+            // }
         }
     },[checkIsReadyState, isLoadScreenShowing]);
+
+    console.log(document.readyState);
 
     if ('load' in window.Event) {
         console.log("The 'load' event is supported!");
